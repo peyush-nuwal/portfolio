@@ -61,7 +61,7 @@ const Hero = () => {
       <div className=" w-full h-1/2 overflow-hidden flex items-end">
         <h1
           ref={firstNameRef}
-          className="w-full text-accent text-[8.5rem] lg:text-[15rem] -tracking-[0.5rem]  font-[800] "
+          className="w-full text-accent text-[8.2rem] lg:text-[15rem] -tracking-[0.5rem]  font-[800] "
         >
           {"PEYUSH".split("").map((letter, index) => (
             <span
@@ -78,7 +78,7 @@ const Hero = () => {
       <div className=" w-full h-1/2 overflow-hidden flex items-start">
         <h1
           ref={lastNameRef}
-          className="w-full text-accent text-end  text-[8.5rem] lg:text-[15rem] -tracking-[0.5rem]  font-[800] "
+          className="w-full text-accent text-end  text-[8.2rem] lg:text-[15rem] -tracking-[0.5rem]  font-[800] "
         >
           {"NUWAL".split("").map((letter, index) => (
             <span
