@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #b7ab98;
+  --color-background: #111111;
+  --color-accent: #FF4D00;
+  --color-secondary: #666666;
+  --color-border: #DDDDDD;
+  --width-90: 90%;
+  --width-80: 80%;
+  --width-70: 70%;
+  --width-60: 60%;
+  --width-50: 50%;
+  --height-90: 90%;
+  --height-80: 80%;
+  --height-70: 70%;
+  --height-60: 60%;
+  --height-50: 50%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background:var(--color-background);
+  
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
+
+
+*::-webkit-scrollbar{
+  display:none;
+}
+
+.stroke-text {
+  -webkit-text-stroke: 1px  #FF4D00;
+
+}
+*::selection{
+  background-color: #FF4D00;
+  color:#111111;
+}
+
+@layer components {
+  
+  .btn {
+    @apply relative z-[999] px-5 py-1 text-lg font-semibold rounded-full transition duration-300 ease-in-out cursor-pointer ;
+  }
+ 
+  .btn-primary {
+    @apply bg-primary text-background border border-primary ;
+  }
+  
+  .btn-secondary {
+   @apply border border-primary text-primary;
+  }
+ 
+ 
+  .btn-transparent{
+    
+    @apply bg-transparent text-primary;
+  
+  }
 }
