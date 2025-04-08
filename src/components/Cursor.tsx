@@ -87,16 +87,17 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
   };
 
   useEffect(() => {
-        if (!stickyElementRef.current) return;
+    const stickyRef = stickyElementRef.current;
+        if (!stickyRef) return;
 
-    stickyElementRef.current.addEventListener("mouseenter", manageMouseOver);
-    stickyElementRef.current.addEventListener("mouseleave", manageMouseLeave);
+   stickyRef.addEventListener("mouseenter", manageMouseOver);
+    stickyRef.addEventListener("mouseleave", manageMouseLeave);
     window.addEventListener("mousemove", manageMouseMove);
     return () => {
           if (!stickyElementRef.current) return;
 
-      stickyElementRef.current.removeEventListener("mouseenter", manageMouseOver);
-      stickyElementRef.current.removeEventListener("mouseleave", manageMouseLeave);
+      stickyRef.removeEventListener("mouseenter", manageMouseOver);
+      stickyRef.removeEventListener("mouseleave", manageMouseLeave);
       window.removeEventListener("mousemove", manageMouseMove);
     };
   }, [isHovered]);
