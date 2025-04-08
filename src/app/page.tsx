@@ -8,6 +8,7 @@ import useLenis from "@/hooks/useLenis";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Loader from "@/components/Loader";
+import Skills from "@/components/Skills";
 
 
 export default function Home() {
@@ -43,13 +44,13 @@ export default function Home() {
     });
 
   return (
-    <main ref={ pageRef} className=" h-full w-full">
-      <Loader/>
+    <main ref={pageRef} className=" h-full w-full">
+      <Loader />
       <Nav ref={stickyElementRef} />
       <Hero />
-      <About/>
+      <About />
+      <Skills />
 
-   
       {/* Cursor component*/}
       <Cursor stickyElementRef={stickyElementRef} />
     </main>

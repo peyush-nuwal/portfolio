@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
-import Skills from "./Skills";
+
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -83,7 +83,7 @@ const About = () => {
 
 
   return (
-    <div className="relative w-full h-screen min-h-screen bg-background text-primary py-10 ">
+    <div className="relative w-full  min-h-screen bg-background text-primary py-10 ">
       <motion.h1
         whileHover="hover"
         className=" w-fit text-accent font-bold  text-3xl lg:text-5xl px-4 lg:px-8 py-1 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
@@ -166,7 +166,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Skills />
+    
     </div>
   );
 };

@@ -5,8 +5,8 @@ interface BtnProps {
   title: string | JSX.Element;
   type?: "primary" | "secondary" | "transparent";
   subTitle: string | JSX.Element;
-  titleStyle?: "string";
-  subTitleStyle?: "string";
+  titleStyle?: string;
+  subTitleStyle?: string;
 }
 const Btn: React.FC<BtnProps> = ({
   title,
