@@ -33,6 +33,7 @@ const Nav = forwardRef<HTMLDivElement>((props, ref) => {
      
       <Magentic>
         <div
+        
           ref={ref}
           onClick={handleHamburger}
           className="relative z-[999]   flex flex-col justify-center gap-2  w-12 h-12 cursor-pointer group "
