@@ -72,7 +72,7 @@ const Loader = () => {
       ref={loaderContainerRef}
       className="w-screen h-screen fixed top-0 bg-white"
     >
-      <div className="fixed top-0 left-0 w-[20%] lg:w-[10%] h-screen bg- z-50  ">
+      <div className="fixed top-0 left-0 w-[25%] lg:w-[10%] h-screen bg- z-50  ">
         <div
           ref={loaderRef}
           className="absolute top-1/2 -translate-y-1/2 w-full h-10 bg-background text-accent flex items-center justify-between gap-3 px-3 overflow-hidden"
