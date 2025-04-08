@@ -101,9 +101,9 @@ gsap.from(".skill-quote span", {
   });
 
   return (
-    <div className="skill-section  p-4  lg:p-10 w-full h-screen mt-10 flex flex-col lg:flex-row-reverse  text-primary
+    <div className="skill-section  p-4  lg:p-10 w-full h-screen  flex flex-col lg:flex-row-reverse  text-primary
     ">
-      <div className="w-full min-h-full lg:w-1/2  px-2 lg:p-10  flex flex-col overflow-hidden ">
+      <div className="w-full h-fit lg:min-h-full lg:w-1/2  px-2 lg:p-10  flex flex-col overflow-hidden  ">
         <div className="overflow-hidden py-1">
           <h2 className="skill-lines text-4xl lg:text-5xl text-accent font-semibold lg:font-bold ">
             My Tech Arsenal
@@ -131,7 +131,7 @@ gsap.from(".skill-quote span", {
             or you want to have chat with me
           </h5>
         </div>
-        <div className=" overflow-hidden  pl-[5%] lg:pl-[7%]  gap-3 mt-2   hidden lg:flex  ">
+        <div className=" overflow-hidden  pl-[5%] lg:pl-[7%]  gap-3 mt-2   hidden lg:flex   ">
           <div className="skill-btn">
             <Btn
               title="Linkedin"
