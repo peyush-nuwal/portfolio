@@ -8,7 +8,7 @@ import useLenis from "@/hooks/useLenis";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Loader from "@/components/Loader";
-import Skills from "@/components/Skills";
+
 gsap
 export default function Home() {
     const stickyElementRef = useRef<HTMLDivElement|null>(null);
@@ -17,13 +17,13 @@ export default function Home() {
         const lenis = useLenis(disableScroll); 
 
          useEffect(() => {
-          //  if (lenis) {
-          //    lenis.scrollTo(0, {
-          //      immediate: false, 
-          //      duration: 1.5,
-          //      easing: (t) => 1 - Math.pow(1 - t, 4), // 
-          //    });
-          //  }
+           if (lenis) {
+             lenis.scrollTo(0, {
+               immediate: false, 
+               duration: 1.5,
+               easing: (t) => 1 - Math.pow(1 - t, 4), // 
+             });
+           }
 
           window.scrollTo(0, 0);
          }, []); 
@@ -32,7 +32,7 @@ export default function Home() {
       gsap.from(pageRef.current, {
        
       
-        // duration: 7,
+        duration: 7,
        
         onComplete: () => {
           setDisableScroll(false); 
@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <main ref={ pageRef} className=" h-full w-full">
-      {/* <Loader/> */}
+      <Loader/>
       <Nav ref={stickyElementRef} />
       <Hero />
       <About/>

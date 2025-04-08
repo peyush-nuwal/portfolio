@@ -1,8 +1,10 @@
 "use client";
 import { useGSAP } from "@gsap/react";
-import { motion } from "motion/react";
+
 import React, { useRef } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
+
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement | null>(null);
   const firstNameRef = useRef<HTMLDivElement | null>(null);
@@ -10,7 +12,7 @@ const Hero = () => {
   const ImgRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
-    const t2 = gsap.timeline(); //{ delay: 6.7}
+    const t2 = gsap.timeline({ delay: 6.7 }); //
     t2.to(heroRef.current, {
       scaleY: 1,
 
@@ -95,7 +97,13 @@ const Hero = () => {
         ref={ImgRef}
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-7 lg:mt-10  w-50 lg:w-[35%]   p-[2px] bg-text -rotate-[10deg]"
       >
-        <img src="/valo.png" alt="" className="w-full h-full object-cover" />
+        <Image
+          src="/valo.png"
+          alt=""
+          width={300}
+          height={300}
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ const Nav = forwardRef<HTMLDivElement>((props, ref) => {
    useGSAP(()=>{
       gsap.from(navRef.current,{
          y:-60,
-        //  delay:8.5,
+         delay:8.5,
          duration:1.5,
          ease:'easeIn'
       })
