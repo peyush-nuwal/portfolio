@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
-import Skills from "./Skills";
+
 
 
 
