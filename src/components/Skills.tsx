@@ -101,7 +101,7 @@ gsap.from(".skill-quote span", {
   });
 
   return (
-    <div className="  p-4  lg:p-10 w-full h-screen mt-10 flex flex-col lg:flex-row-reverse  text-primary
+    <div className="skill-section  p-4  lg:p-10 w-full h-screen mt-10 flex flex-col lg:flex-row-reverse  text-primary
     ">
       <div className="w-full min-h-full lg:w-1/2  px-2 lg:p-10  flex flex-col overflow-hidden ">
         <div className="overflow-hidden py-1">

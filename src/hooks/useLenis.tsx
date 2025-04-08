@@ -6,7 +6,7 @@ export default function useLenis(disableScroll: boolean) {
 
   useEffect(() => {
     const lenisInstance = new Lenis({
-      smooth: true,
+      
       lerp: 0.1,
     });
 
