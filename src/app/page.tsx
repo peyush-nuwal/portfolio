@@ -9,7 +9,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Loader from "@/components/Loader";
 
-gsap
+
 export default function Home() {
     const stickyElementRef = useRef<HTMLDivElement|null>(null);
     const pageRef = useRef<HTMLDivElement|null>(null);
