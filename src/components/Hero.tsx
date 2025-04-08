@@ -56,12 +56,12 @@ const Hero = () => {
   return (
     <div
       ref={heroRef}
-      className="relative scale-y-0 origin-center z-[55] h-screen w-full pt-16 bg-background text-primary flex flex-col gap-3 "
+      className="relative scale-y-0 origin-center z-[55] h-screen w-full pt-16 px-2 bg-background text-primary flex flex-col gap-3 "
     >
       <div className=" w-full h-1/2 overflow-hidden flex items-end">
         <h1
           ref={firstNameRef}
-          className="w-full text-accent text-[7.5rem] lg:text-[15rem] -tracking-[0.5rem]  font-[800] "
+          className="w-full text-accent text-[7.8rem] lg:text-[15rem] -tracking-[0.5rem]  font-[800] "
         >
           {"PEYUSH".split("").map((letter, index) => (
             <span
@@ -78,7 +78,7 @@ const Hero = () => {
       <div className=" w-full h-1/2 overflow-hidden flex items-start">
         <h1
           ref={lastNameRef}
-          className="w-full text-accent text-end  text-[7.5rem] lg:text-[15rem] -tracking-[0.5rem]  font-[800] "
+          className="w-full text-accent text-end  text-[7.8rem] lg:text-[15rem] -tracking-[0.5rem]  font-[800] "
         >
           {"NUWAL".split("").map((letter, index) => (
             <span
@@ -95,7 +95,7 @@ const Hero = () => {
 
       <div
         ref={ImgRef}
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-7 lg:mt-10  w-50 lg:w-[35%]   p-[2px] bg-text -rotate-[10deg]"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-7 lg:mt-10  w-50 lg:w-[35%]   p-[2px] bg-text -rotate-[15deg] lg:-rotate-[10deg]"
       >
         <Image
           src="/valo.png"
