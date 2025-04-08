@@ -86,7 +86,7 @@ const About = () => {
     <div className="relative w-full h-screen min-h-screen bg-background text-primary py-10 ">
       <motion.h1
         whileHover="hover"
-        className=" text-accent font-bold text-3xl lg:text-5xl px-4 lg:px-8 py-1 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
+        className=" w-fit text-accent font-bold  text-3xl lg:text-5xl px-4 lg:px-8 py-1 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
       >
         <span className="inline-block stroke-text text-background group-hover:text-accent text-4xl  lg:text-6xl ">
           /
