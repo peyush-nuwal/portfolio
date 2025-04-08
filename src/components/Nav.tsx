@@ -64,4 +64,5 @@ const Nav = forwardRef<HTMLDivElement>((props, ref) => {
   );
 })
 
+Nav.displayName = "Nav";
 export default Nav

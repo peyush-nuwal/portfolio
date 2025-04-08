@@ -26,7 +26,7 @@ export default function Home() {
            }
 
           window.scrollTo(0, 0);
-         }, []); 
+         }, [lenis]); 
 
     useGSAP(() => {
       gsap.from(pageRef.current, {
