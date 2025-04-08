@@ -4,9 +4,9 @@ import { motion } from 'motion/react'
 import React, { useState, useRef, forwardRef } from "react";
 import { gsap } from "gsap";
 import Magentic from './Magentic';
-import Image from 'next/image';
-import goku from '/public/goku.png'
-import black from '/public/black.png'
+
+
+
 
 
 
@@ -30,10 +30,9 @@ const Nav = forwardRef<HTMLDivElement>((props, ref) => {
       ref={navRef}
       className="fixed z-[999] top-0 left-0 h-16 w-screen  flex justify-end items-center px-4 lg:px-6   "
     >
-     
+      
       <Magentic>
         <div
-        
           ref={ref}
           onClick={handleHamburger}
           className="relative z-[999]   flex flex-col justify-center gap-2  w-12 h-12 cursor-pointer group "

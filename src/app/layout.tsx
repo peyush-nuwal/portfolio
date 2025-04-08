@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
-import Loader from "@/components/Loader";
+
 
 
 
@@ -14,6 +14,9 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "Peyush nuwal ",
   description: "Peyush nuwal's personal website",
+  icons: {
+    icon: "/favicon.svg", // or /favicon.ico
+  },
 };
 
 export default function RootLayout({
@@ -24,11 +27,8 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${raleway.variable} antialiased`}>
-        
-      
-        {children}
-      </body>
+     
+      <body className={`${raleway.variable} antialiased`}>{children}</body>
     </html>
   );
 }
