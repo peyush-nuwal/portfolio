@@ -40,7 +40,7 @@ const backendSkills = [
 
 const Skills = () => {
 
-   const quote = `'' My goal is to Write Maintainable, clean ${"     "} and Understandable code to process ${"        "} development was enjoyable ''`;
+   const quote = `'' My goal is to Write Maintainable, clean  and Understandable code to process development was enjoyable ''`;
 
   useGSAP(() => {
     gsap.from(".card", {
@@ -101,8 +101,10 @@ gsap.from(".skill-quote span", {
   });
 
   return (
-    <div className="skill-section  p-4  lg:p-10 w-full h-screen  flex flex-col lg:flex-row-reverse  text-primary
-    ">
+    <div
+      className="skill-section  p-4  lg:p-10 w-full h-screen  flex flex-col lg:flex-row-reverse  text-primary
+    "
+    >
       <div className="w-full h-fit lg:min-h-full lg:w-1/2  px-2 lg:p-10  flex flex-col overflow-hidden  ">
         <div className="overflow-hidden py-1">
           <h2 className="skill-lines text-4xl lg:text-5xl text-accent font-semibold lg:font-bold ">
@@ -154,19 +156,28 @@ gsap.from(".skill-quote span", {
 
         <h1 className="text-2xl lg:text-3xl font-semibold w-90 text-center lg:text-center my-auto hidden lg:flex flex-wrap  mx-auto mt-10 ">
           {quote.split(" ").map((cha, idx) => (
-            <div key={idx} className="mr-2 skill-quote overflow-hidden">
-              <span
-                className={`inline-block ${
-                  cha === "Write" ? "text-accent" : ""
-                } ${cha === "Maintainable," ? "text-accent" : ""}
-                 ${cha === "Clean" ? "text-accent" : ""}
-                 ${cha === "Understandable" ? "text-accent" : ""}
-                 ${cha === "code" ? "text-accent" : ""}
-                 `}
-              >
-                {cha}
-              </span>
-            </div>
+            <React.Fragment key={idx}>
+              <div className="mr-2 skill-quote overflow-hidden">
+                <span
+                  className={`inline-block ${
+                    [
+                      "Write",
+                      "Maintainable,",
+                      "Clean",
+                      "Understandable",
+                      "code",
+                    ].includes(cha)
+                      ? "text-accent"
+                      : ""
+                  }`}
+                >
+                  {cha}
+                </span>
+              </div>
+
+              
+              {(cha === "Clean" || cha === "process") && <br />}
+            </React.Fragment>
           ))}
         </h1>
       </div>
