@@ -7,6 +7,7 @@ interface BtnProps {
   subTitle: string | JSX.Element;
   titleStyle?: string;
   subTitleStyle?: string;
+  onClick?:  React.MouseEventHandler<HTMLButtonElement>;
 }
 const Btn: React.FC<BtnProps> = ({
   title,
@@ -14,10 +15,12 @@ const Btn: React.FC<BtnProps> = ({
   subTitle,
   titleStyle="",
   subTitleStyle="",
+  onClick = () => {},
 }) => {
   return (
     <motion.button
       whileHover="hover"
+      onClick={onClick}
       className={`relative btn btn-${type} inline-flex flex-col  overflow-hidden  ${titleStyle}`}
     >
       <motion.span

@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Loader from "@/components/Loader";
 import Skills from "@/components/Skills";
+import Featured from "@/components/Featured";
 
 
 export default function Home() {
@@ -50,7 +51,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-
+      <Featured/>
       {/* Cursor component*/}
       <Cursor stickyElementRef={stickyElementRef} />
     </main>

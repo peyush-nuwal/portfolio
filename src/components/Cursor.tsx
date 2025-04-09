@@ -107,7 +107,7 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
   };
 
   return (
-    <div>
+    <div className="hidden lg:visible">
       <motion.div
         transformTemplate={template}
         style={{
@@ -120,7 +120,7 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
           width: cursorSize,
           height: cursorSize,
         }}
-        className="fixed top-0 left-0 z-[55] w-8 h-8  bg-accent rounded-full pointer-events-none mix-blend-difference"
+        className="fixed top-0 left-0 z-[55] w-8 h-8  bg-accent rounded-full pointer-events-none mix-blend-difference hidden lg:visible"
         ref={cursor}
       ></motion.div>
     </div>

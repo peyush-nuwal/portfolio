@@ -84,7 +84,7 @@ const About = () => {
 
 
   return (
-    <div className="relative w-full h-[70vh]    bg-background text-primary py-10 ">
+    <div className="relative w-full h-[70vh]    bg-background text-primary py-2 lg:py-10 ">
       <motion.h1
         whileHover="hover"
         className=" w-fit text-accent font-bold  text-3xl lg:text-5xl px-4 lg:px-8 py-1 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
@@ -115,7 +115,7 @@ const About = () => {
           </motion.span>
         </div>
       </motion.h1>
-      <div className="relative w-full h-1/2  ">
+      <div className="relative w-full h-1/2   ">
         <div
           ref={maskRef}
           style={{
@@ -126,7 +126,7 @@ const About = () => {
             maskOrigin: "center",
             WebkitMaskOrigin: "center",
           }}
-          className="  absolute top-0   z-[500] w-full h-fit flex items-center justify-center bg-accent text-background  pointer-events-none origin-center overflow-hidden about-section "
+          className="  absolute top-0   z-[500] w-full h-fit hidden lg:flex items-center justify-center bg-accent text-background  pointer-events-none origin-center overflow-hidden about-section  "
         >
           <div className="text-4xl lg:text-6xl font-semibold   px-6 lg:px-10 flex flex-wrap   ">
             {underText.split(" ").map((c, idx) => (
@@ -167,7 +167,6 @@ const About = () => {
           </div>
         </div>
       </div>
-   
     </div>
   );
 };

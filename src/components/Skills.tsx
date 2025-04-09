@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import Btn from "./Btn";
 import { BsLinkedin, BsTwitterX ,BsDownload} from "react-icons/bs";
 import gsap from "gsap";
@@ -41,6 +41,15 @@ const backendSkills = [
 const Skills = () => {
 
    const quote = `'' My goal is to Write Maintainable, clean  and Understandable code to process development was enjoyable ''`;
+
+
+   const handleDownload=(e:React.MouseEvent<HTMLButtonElement>)=>{
+        e.preventDefault()
+        const link = document.createElement("a");
+        link.href='/resume.pdf'
+        link.download='/resume.pdf'
+        link.click()
+   }
 
   useGSAP(() => {
     gsap.from(".card", {
@@ -118,6 +127,7 @@ gsap.from(".skill-quote span", {
               title="Download"
               subTitle={<BsDownload />}
               type="transparent"
+              onClick={handleDownload}
               titleStyle="font-medium !p-0 !px-1 text-base"
             />
           </h5>
@@ -175,7 +185,6 @@ gsap.from(".skill-quote span", {
                 </span>
               </div>
 
-              
               {(cha === "Clean" || cha === "process") && <br />}
             </React.Fragment>
           ))}
