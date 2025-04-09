@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import Btn from "./Btn";
 import { BsLinkedin, BsTwitterX ,BsDownload} from "react-icons/bs";
 import gsap from "gsap";
