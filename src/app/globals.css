@@ -40,6 +40,9 @@ body {
   color:#111111;
 }
 
+
+
+
 @layer components {
   
   .btn {
@@ -61,3 +64,10 @@ body {
   
   }
 }
+
+
+.award{
+    height: 80px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+

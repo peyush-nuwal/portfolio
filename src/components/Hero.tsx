@@ -56,7 +56,7 @@ const Hero = () => {
   return (
     <div
       ref={heroRef}
-      className="relative scale-y-0 origin-center z-[55] h-screen w-full pt-16 px-2 bg-background text-primary flex flex-col gap-28 lg:gap-3 "
+      className="relative scale-y-0 origin-center z-[55] h-screen w-full pt-16 px-0 lg:px-2 bg-background text-primary flex flex-col gap-28 lg:gap-3 "
     >
       <div className=" w-full h-1/2 overflow-hidden flex items-end">
         <h1

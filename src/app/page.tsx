@@ -12,6 +12,7 @@ import Skills from "@/components/Skills";
 import Featured from "@/components/Featured";
 
 
+
 export default function Home() {
     const stickyElementRef = useRef<HTMLDivElement|null>(null);
     const pageRef = useRef<HTMLDivElement|null>(null);
@@ -51,7 +52,10 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-      <Featured/>
+      
+      <Featured />
+  
+      
       {/* Cursor component*/}
       <Cursor stickyElementRef={stickyElementRef} />
     </main>
