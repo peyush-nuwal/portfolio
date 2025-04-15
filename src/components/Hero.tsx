@@ -12,7 +12,7 @@ const Hero = () => {
   const ImgRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
-    const t2 = gsap.timeline(); //{ delay: 6.7 }
+    const t2 = gsap.timeline({ delay: 6.7 }); //
     t2.to(heroRef.current, {
       scaleY: 1,
 
