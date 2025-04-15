@@ -77,26 +77,29 @@ interface ProjectItemProps {
   setHoveredIndex: React.Dispatch<React.SetStateAction<number | null>>;
 }
 const ProjectItem:React.FC<ProjectItemProps> = ({ index, setHoveredIndex }) => {
-  const containerRef = useRef(null);
-  const wrapperRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     gsap.set(wrapperRef.current, { y: POSITIONS.MIDDLE });
   }, []);
 
   const handleEnter = (e:React.MouseEvent) => {
-     if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-   
-    const enteredFromTop = e.clientY < rect.top + rect.height / 2;
+   if (!containerRef.current || !wrapperRef.current) return;
 
-    gsap.to(wrapperRef.current, {
-      y: enteredFromTop ? POSITIONS.TOP : POSITIONS.BOTTOM,
-      duration: 0.4,
-      ease: "power2.out",
-    });
 
-    setHoveredIndex(index);
+      const rect = containerRef.current.getBoundingClientRect();
+
+      const enteredFromTop = e.clientY < rect.top + rect.height / 2;
+
+      gsap.to(wrapperRef.current, {
+        y: enteredFromTop ? POSITIONS.TOP : POSITIONS.BOTTOM,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+
+      setHoveredIndex(index);
+    
   };
 
   const handleLeave = () => {
