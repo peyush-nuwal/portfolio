@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
+import { motion } from "motion/react";
 
 const POSITIONS = {
   TOP: -160,
@@ -113,32 +114,39 @@ const ProjectItem:React.FC<ProjectItemProps> = ({ index, setHoveredIndex }) => {
   };
 
   const { title, label, type } = projects[index];
+  const isFirst = index === 0;
 
   return (
-    <div
-      ref={containerRef}
-      className="award text-4xl font-semibold overflow-hidden h-[80px]"
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-    >
+    // <a href="#">
       <div
-        ref={wrapperRef}
-        className="award-wrapper relative will-change-transform translate-y-[-160px]"
+        ref={containerRef}
+        className={`award  text-2xl lg:text-4xl  font-semibold overflow-hidden h-[80px] border-b-2 border-b-primary border-t-2 ${
+          isFirst ? "border-t-primary" : "border-t-transparent"
+        }`}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
       >
-        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-primary text-background">
-          <h1>{title}</h1>
-          <h1>{type}</h1>
-        </div>
-        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-background text-primary">
-          <h1>project</h1>
-          <h1>{label}</h1>
-        </div>
-        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-primary text-background">
-          <h1>{title}</h1>
-          <h1>{type}</h1>
+        <div
+          ref={wrapperRef}
+          className={`award-wrapper relative will-change-transform translate-y-[-160px]   `}
+        >
+          <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-primary text-background px-4 lg:px-10">
+            <h1>{title}</h1>
+            <h1>{type}</h1>
+          </div>
+          <div
+            className={`w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-background text-primary px-4 lg:px-10 border-b-2 border-b-primary  `}
+          >
+            <h1>project</h1>
+            <h1>{label}</h1>
+          </div>
+          <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-primary text-background px-4 lg:px-10">
+            <h1>{title}</h1>
+            <h1>{type}</h1>
+          </div>
         </div>
       </div>
-    </div>
+    // </a>
   );
 };
 
@@ -184,15 +192,39 @@ const Featured = () => {
   }, [hoveredIndex]);
 
   return (
-    <div className="min-h-screen px-4 lg:px-10 py-20 text-primary relative">
-      <h1 className="text-6xl mb-10">Recognition and Awards</h1>
+    <div className="min-h-screen  py-20 text-primary relative">
+      <motion.h1
+        whileHover="hover"
+        className=" w-fit text-accent font-bold  text-3xl lg:text-5xl px-4 lg:px-8 py-1 mb-0 mb-5 lg:mb-16 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
+      >
+        <span className="inline-block stroke-text text-background group-hover:text-accent text-4xl  lg:text-6xl ">
+          /
+        </span>
+        <div className="h-10 lg:h-12  flex flex-col overflow-hidden ">
+          <motion.span
+            variants={{
+              hover: { y: "-100%" },
+            }}
+            initial={{ y: 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="inline-block "
+          >
+            Featured Projects
+          </motion.span>
+          <motion.span
+            variants={{
+              hover: { y: "-100%" },
+            }}
+            initial={{ y: 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="inline-block"
+          >
+            Featured Projects
+          </motion.span>
+        </div>
+      </motion.h1>
       {projects.map((_, i) => (
-        <ProjectItem
-          key={i}
-          index={i}
-          setHoveredIndex={setHoveredIndex}
-         
-        />
+        <ProjectItem key={i} index={i} setHoveredIndex={setHoveredIndex} />
       ))}
       <div
         ref={previewRef}

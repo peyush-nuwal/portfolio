@@ -47,12 +47,12 @@ export default function Home() {
 
   return (
     <main ref={pageRef} className=" h-full w-full">
-      <Loader />
+      {/* <Loader /> */}
       <Nav ref={stickyElementRef} />
       <Hero />
-      <About />
-      <Skills />
-      <Featured />
+      {/* <About /> */}
+      {/* <Skills /> */}
+      {/* <Featured /> */}
   
       
       {/* Cursor component*/}
