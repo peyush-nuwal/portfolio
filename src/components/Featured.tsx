@@ -72,7 +72,11 @@ const projects = [
   },
 ];
 
-const ProjectItem = ({ index, setHoveredIndex, hoveredIndex }) => {
+interface ProjectItemProps {
+  index: number;
+  setHoveredIndex: React.Dispatch<React.SetStateAction<number | null>>;
+}
+const ProjectItem:React.FC<ProjectItemProps> = ({ index, setHoveredIndex }) => {
   const containerRef = useRef(null);
   const wrapperRef = useRef(null);
 
@@ -80,8 +84,10 @@ const ProjectItem = ({ index, setHoveredIndex, hoveredIndex }) => {
     gsap.set(wrapperRef.current, { y: POSITIONS.MIDDLE });
   }, []);
 
-  const handleEnter = (e) => {
+  const handleEnter = (e:React.MouseEvent) => {
+     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
+   
     const enteredFromTop = e.clientY < rect.top + rect.height / 2;
 
     gsap.to(wrapperRef.current, {
@@ -180,7 +186,7 @@ const Featured = () => {
           key={i}
           index={i}
           setHoveredIndex={setHoveredIndex}
-          hoveredIndex={hoveredIndex}
+         
         />
       ))}
       <div
