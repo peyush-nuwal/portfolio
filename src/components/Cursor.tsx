@@ -100,7 +100,7 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
       stickyRef.removeEventListener("mouseleave", manageMouseLeave);
       window.removeEventListener("mousemove", manageMouseMove);
     };
-  }, [isHovered]);
+  }, [isHovered,manageMouseOver, manageMouseLeave, manageMouseMove, stickyElementRef]);   
 
   const template = ({ rotate, scaleX, scaleY }: { rotate: number; scaleX: number; scaleY: number }) => {
     return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`;
@@ -122,7 +122,7 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
         }}
         className="fixed top-0 left-0 z-[55] w-8 h-8  bg-accent rounded-full pointer-events-none mix-blend-difference opacity-0 lg:opacity-100"
         ref={cursor}
-      ></motion.div>
+      />
     </div>
   );
 };
