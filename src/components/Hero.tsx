@@ -64,14 +64,14 @@ const Hero = () => {
       const firstSpans=gsap.utils.selector(firstNameRef.current)("span");
       const lastSpans=gsap.utils.selector(lastNameRef.current)("span");
        
-        const firstSpanSetters = firstSpans.map((span: any) =>
+        const firstSpanSetters = Array.from(firstSpans as HTMLSpanElement[]).map((span) =>
           gsap.quickTo(span, "scaleX", {
             duration: 0.5,
             ease: "power2.out",
           })
         );
 
-        const lastSpanSetters = lastSpans.map((span: any) =>
+        const lastSpanSetters = Array.from(lastSpans as HTMLSpanElement[]).map((span) =>
           gsap.quickTo(span, "scaleX", {
             duration: 0.5,
             ease: "power2.out",
@@ -84,15 +84,35 @@ const Hero = () => {
 
         const scaleMapped=gsap.utils.mapRange(0,centerX,0.8,1.2,distanceFromCenter);
           const isLeft = e.clientX < centerX;
-      firstSpanSetters.forEach((setScaleX:any, index:number) => {
-       const scaleValue=index % 2 ===0? isLeft ? scaleMapped : 1 / scaleMapped : isLeft ? 1 / scaleMapped : scaleMapped;
-        setScaleX(scaleValue);
-      })
+
+
+      firstSpanSetters.forEach(
+        (setScaleX: gsap.QuickToFunc, index: number) => {
+          const scaleValue =
+            index % 2 === 0
+              ? isLeft
+                ? scaleMapped
+                : 1 / scaleMapped
+              : isLeft
+              ? 1 / scaleMapped
+              : scaleMapped;
+          setScaleX(scaleValue);
+        }
+      );
       
-         lastSpanSetters.forEach((setScaleX: any, index: number) => {
-           const scaleValue = index % 2 === 0 ? isLeft ? scaleMapped : 1 / scaleMapped : isLeft ? 1 / scaleMapped : scaleMapped;
-           setScaleX(scaleValue);
-         });
+         lastSpanSetters.forEach(
+           (setScaleX: gsap.QuickToFunc, index: number) => {
+             const scaleValue =
+               index % 2 === 0
+                 ? isLeft
+                   ? scaleMapped
+                   : 1 / scaleMapped
+                 : isLeft
+                 ? 1 / scaleMapped
+                 : scaleMapped;
+             setScaleX(scaleValue);
+           }
+         );
       }
       
      hero.addEventListener("mousemove", handleMouseMove);
