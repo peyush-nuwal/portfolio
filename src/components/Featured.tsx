@@ -143,10 +143,12 @@ const ProjectItem:React.FC<ProjectItemProps> = ({ index, setHoveredIndex }) => {
 };
 
 const Featured = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const previewRef = useRef(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number |null>(null);
+  const previewRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if(!previewRef.current) return;
+
     if (hoveredIndex !== null) {
       const img = document.createElement("img");
       img.src = projects[hoveredIndex].image;
@@ -157,7 +159,7 @@ const Featured = () => {
       img.style.height = "100%";
       img.style.objectFit = "cover";
       img.style.willChange = "transform";
-      img.style.zIndex = Date.now();
+      img.style.zIndex = Date.now().toString();;
       img.style.transform = "scale(0)";
 
       previewRef.current.appendChild(img);
