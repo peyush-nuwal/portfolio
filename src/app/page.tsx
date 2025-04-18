@@ -52,10 +52,10 @@ export default function Home() {
 
   return (
     <main ref={pageRef} className=" h-full w-full">
-      <Loader />
+      {/* <Loader />
       <Nav ref={stickyElementRef} />
       <Hero />
-      <About />
+      <About />*/}
       <Skills />
       <Featured />
       <Services />
