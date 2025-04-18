@@ -133,17 +133,17 @@ gsap.from(".skill-quote span", {
           </h5>
         </div>
         <div className="overflow-hidden w-1/2 pl-1 lg:pl-2   ">
-          <h5 className="skill-lines w-fit ml-[40%] text-base lg:text-xl group mt-1  hidden lg:flex  text-center  ">
+          <h5 className="skill-lines w-fit ml-[40%] text-base lg:text-xl group mt-1  flex  text-center  ">
             or
           </h5>
         </div>
 
-        <div className="overflow-hidden pl-1 lg:pl-2 hidden lg:block ">
+        <div className="overflow-hidden pl-1 lg:pl-2  ">
           <h5 className="skill-lines text-base lg:text-xl group mt-1 flex ">
             or you want to have chat with me
           </h5>
         </div>
-        <div className=" overflow-hidden  pl-[5%] lg:pl-[7%]  gap-3 mt-2   hidden lg:flex   ">
+        <div className=" overflow-hidden  pl-[3%] lg:pl-[7%]  gap-3 mt-2   flex   ">
           <div className="skill-btn">
             <Btn
               title="Linkedin"

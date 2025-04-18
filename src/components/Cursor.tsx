@@ -89,10 +89,10 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
     stickyRef.addEventListener("mouseenter", manageMouseOver);
     stickyRef.addEventListener("mouseleave", manageMouseLeave);
     window.addEventListener("mousemove", manageMouseMove);
-
+       console.log("Mouse move event listener added");
     return () => {
     
-
+ console.log("Mouse move event listener removed");
       stickyRef.removeEventListener("mouseenter", manageMouseOver);
       stickyRef.removeEventListener("mouseleave", manageMouseLeave);
       window.removeEventListener("mousemove", manageMouseMove);

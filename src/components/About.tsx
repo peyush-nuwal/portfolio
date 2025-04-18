@@ -101,7 +101,7 @@ const About = () => {
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="inline-block "
           >
-            About Me
+            Who am i
           </motion.span>
           <motion.span
             variants={{
@@ -111,7 +111,7 @@ const About = () => {
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="inline-block"
           >
-            About Me
+            a bit about me
           </motion.span>
         </div>
       </motion.h1>

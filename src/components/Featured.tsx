@@ -82,30 +82,53 @@ const ProjectItem:React.FC<ProjectItemProps> = ({ index, setHoveredIndex }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    gsap.set(wrapperRef.current, { y: POSITIONS.MIDDLE });
+    gsap.set(wrapperRef.current, { y: POSITIONS.TOP });
   }, []);
 
-  const handleEnter = (e:React.MouseEvent) => {
-   if (!containerRef.current || !wrapperRef.current) return;
+  
+  //  if (!containerRef.current || !wrapperRef.current) return;
 
 
-      const rect = containerRef.current.getBoundingClientRect();
+  //     const rect = containerRef.current.getBoundingClientRect();
 
-      const enteredFromTop = e.clientY < rect.top + rect.height / 2;
+  //     const enteredFromTop = e.clientY < rect.top + rect.height / 2;
 
-      gsap.to(wrapperRef.current, {
-        y: enteredFromTop ? POSITIONS.TOP : POSITIONS.BOTTOM,
-        duration: 0.4,
-        ease: "power2.out",
-      });
+  //     gsap.to(wrapperRef.current, {
+  //       y: enteredFromTop ? POSITIONS.BOTTOM : POSITIONS.TOP,
+  //       duration: 0.4,
+  //       ease: "power2.out",
+  //     });
 
-      setHoveredIndex(index);
+  //     setHoveredIndex(index);
     
-  };
+  // };
 
-  const handleLeave = () => {
+  // const handleLeave = () => {
+  //   gsap.to(wrapperRef.current, {
+  //     y: POSITIONS.MIDDLE,
+  //     duration: 0.4,
+  //     ease: "power2.inOut",
+  //   });
+
+  //   setHoveredIndex(null);
+  // };
+const handleEnter = () => {
+  gsap.to(wrapperRef.current, {
+    y: POSITIONS.MIDDLE, 
+    duration: 0.4,
+    ease: "power2.out",
+  });
+  setHoveredIndex(index);
+};
+
+  const handleLeave = (e: React.MouseEvent) => {
+    if (!containerRef.current || !wrapperRef.current) return;
+
+    const rect = containerRef.current.getBoundingClientRect();
+    const exitedToTop = e.clientY < rect.top + rect.height / 2;
+
     gsap.to(wrapperRef.current, {
-      y: POSITIONS.MIDDLE,
+      y: exitedToTop ? POSITIONS.TOP : POSITIONS.BOTTOM,
       duration: 0.4,
       ease: "power2.inOut",
     });
@@ -113,39 +136,40 @@ const ProjectItem:React.FC<ProjectItemProps> = ({ index, setHoveredIndex }) => {
     setHoveredIndex(null);
   };
 
+
   const { title, label, type } = projects[index];
   const isFirst = index === 0;
 
   return (
     // <a href="#">
+    <div
+      ref={containerRef}
+      className={`award  text-2xl lg:text-4xl  font-semibold overflow-hidden h-[80px] border-b-2 border-b-primary border-t-2 ${
+        isFirst ? "border-t-primary" : "border-t-transparent"
+      }`}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
       <div
-        ref={containerRef}
-        className={`award  text-2xl lg:text-4xl  font-semibold overflow-hidden h-[80px] border-b-2 border-b-primary border-t-2 ${
-          isFirst ? "border-t-primary" : "border-t-transparent"
-        }`}
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
+        ref={wrapperRef}
+        className={`award-wrapper relative will-change-transform translate-y-[-160px]   `}
       >
+        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase px-4 lg:px-10 bg-background text-primary">
+          <h1>bae-project{index}</h1>
+          <h1>{label} </h1>
+        </div>
         <div
-          ref={wrapperRef}
-          className={`award-wrapper relative will-change-transform translate-y-[-160px]   `}
+          className={`w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase   bg-primary text-background px-4 lg:px-10 border-b-2 border-b-primary  `}
         >
-          <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-primary text-background px-4 lg:px-10">
-            <h1>{title}</h1>
-            <h1>{type}</h1>
-          </div>
-          <div
-            className={`w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-background text-primary px-4 lg:px-10 border-b-2 border-b-primary  `}
-          >
-            <h1>project</h1>
-            <h1>{label}</h1>
-          </div>
-          <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase bg-primary text-background px-4 lg:px-10">
-            <h1>{title}</h1>
-            <h1>{type}</h1>
-          </div>
+          <h1>{title}</h1>
+          <h1>{type}</h1>
+        </div>
+        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase  px-4 lg:px-10 bg-background text-primary">
+          <h1>bae-project{index}</h1>
+          <h1>{label} </h1>
         </div>
       </div>
+    </div>
     // </a>
   );
 };
@@ -191,6 +215,8 @@ const Featured = () => {
     }
   }, [hoveredIndex]);
 
+ 
+
   return (
     <div className="min-h-screen  py-20 text-primary relative">
       <motion.h1
@@ -209,7 +235,7 @@ const Featured = () => {
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="inline-block "
           >
-            Featured Projects
+            look what I made
           </motion.span>
           <motion.span
             variants={{
@@ -219,7 +245,7 @@ const Featured = () => {
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="inline-block"
           >
-            Featured Projects
+            My Featured Projects
           </motion.span>
         </div>
       </motion.h1>
@@ -229,7 +255,9 @@ const Featured = () => {
       <div
         ref={previewRef}
         className="award-preview fixed bottom-[12px] right-[12px] w-1/3 h-1/3 pointer-events-none z-[1000]"
-      ></div>
+      >
+       
+      </div>
     </div>
   );
 };

@@ -10,13 +10,18 @@ import gsap from "gsap";
 import Loader from "@/components/Loader";
 import Skills from "@/components/Skills";
 import Featured from "@/components/Featured";
+import Footer from "@/components/Footer";
+import Faq from "@/components/Faq";
+import Achievement from "@/components/Achievement";
+import Services from "@/components/Services";
+
 
 
 
 export default function Home() {
     const stickyElementRef = useRef<HTMLDivElement|null>(null);
     const pageRef = useRef<HTMLDivElement|null>(null);
-       const [disableScroll, setDisableScroll] = useState(true); 
+       const [disableScroll, setDisableScroll] = useState(false); 
         const lenis = useLenis(disableScroll); 
 
          useEffect(() => {
@@ -53,8 +58,11 @@ export default function Home() {
       <About />
       <Skills />
       <Featured />
-  
-      
+      <Services />
+      <Achievement />
+      <Faq />
+      <Footer />
+
       {/* Cursor component*/}
       <Cursor stickyElementRef={stickyElementRef} />
     </main>
