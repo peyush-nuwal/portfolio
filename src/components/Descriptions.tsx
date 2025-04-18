@@ -12,7 +12,7 @@ const Descriptions: React.FC<DescriptionsProps> = ({
   data,
   selectedProject,
 }) => {
-  const crop = (str: string, maxLength: number) => str.substring(0, maxLength);
+
 
   return (
     <div className="absolute top-0 w-full h-full z-20 pointer-events-none">

@@ -1,38 +1,37 @@
 import { motion } from 'motion/react';
 import React from 'react'
-import { FaArrowUp } from "react-icons/fa";
 
 const Achievement = () => {
-  const certificates = [
-    {
-      title: "ReactJS Certificate",
-      provider: "HackerRank",
-      date: "Jan 2024",
-      link: "#",
-      message: "View",
-    },
-    {
-      title: "JavaScript Essentials",
-      provider: "Codecademy",
-      date: "Dec 2023",
-      link: "#",
-      message: "Completed",
-    },
-    {
-      title: "CSS Mastery",
-      provider: "freeCodeCamp",
-      date: "Nov 2023",
-      link: "#",
-      message: "eted",
-    },
-    {
-      title: "NodeJS Certification",
-      provider: "Udemy",
-      date: "Feb 2024",
-      link: "#",
-      message: "View",
-    },
-  ];
+  // const certificates = [
+  //   {
+  //     title: "ReactJS Certificate",
+  //     provider: "HackerRank",
+  //     date: "Jan 2024",
+  //     link: "#",
+  //     message: "View",
+  //   },
+  //   {
+  //     title: "JavaScript Essentials",
+  //     provider: "Codecademy",
+  //     date: "Dec 2023",
+  //     link: "#",
+  //     message: "Completed",
+  //   },
+  //   {
+  //     title: "CSS Mastery",
+  //     provider: "freeCodeCamp",
+  //     date: "Nov 2023",
+  //     link: "#",
+  //     message: "eted",
+  //   },
+  //   {
+  //     title: "NodeJS Certification",
+  //     provider: "Udemy",
+  //     date: "Feb 2024",
+  //     link: "#",
+  //     message: "View",
+  //   },
+  // ];
 
   return (
     <div className={`w-full min-h-[50vh] h-fit `}>
