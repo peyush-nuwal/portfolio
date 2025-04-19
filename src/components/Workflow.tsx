@@ -69,7 +69,7 @@ const Workflow = () => {
             trigger: container,
             scrub: 1,
             start: "top 80%",
-            markers: true,
+           
             end: "top 30%",
           },
         });
@@ -168,7 +168,7 @@ const Step: React.FC<StepProps> = ({ index, icon, title, desc }) => {
       <div className="step-icon col-span-1 block text-3xl lg:text-5xl text-accent overflow-hidden">
         <span className="block">{icon}</span>
       </div>
-      <h1 className=" step-h1 col-span-2  text-xl lg:text-3xl -ml-2 font-medium text-nowrap overflow-hidden">
+      <h1 className=" step-h1 col-span-2  text-xl lg:text-3xl  font-medium break-words overflow-hidden">
         <span className="block">{title}</span>
       </h1>
 

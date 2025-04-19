@@ -82,7 +82,7 @@ export default function ServicesSection() {
             </motion.span>
           </div>
         </motion.h1>
-        <div className="mt-16 lg:mt-20 relative">
+        <div className="mt-8 lg:mt-20 relative">
           <Titles data={services} setSelectedProject={setSelectedProject} />
           <Descriptions data={services} selectedProject={selectedProject} />
         </div>

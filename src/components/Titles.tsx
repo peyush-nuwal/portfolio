@@ -49,7 +49,7 @@ const Title:React.FC<TitleProps>=({title,index,speed,setSelectedProject})=>{
   const clipProgress = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   const clip = useMotionTemplate`inset(0 ${clipProgress}% 0 0 )`;
-  return(
+  return (
     <div
       ref={titleRef}
       onMouseEnter={() => setSelectedProject(index)}
@@ -67,11 +67,11 @@ const Title:React.FC<TitleProps>=({title,index,speed,setSelectedProject})=>{
           }}
           className="absolute top-0 left-0 z-10"
         >
-          <p className="text-primary ">{title}</p>
+          <p className="text-primary text-nowrap">{title}</p>
         </motion.div>
 
-        <p className=" relative z-0 block text-black ">{title}</p>
+        <p className=" relative z-0 block text-black text-nowrap">{title}</p>
       </div>
     </div>
-  )
+  );
 }
