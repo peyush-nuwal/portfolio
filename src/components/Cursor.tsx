@@ -72,24 +72,23 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
     animate(cursor.current, { scaleX: 1, scaleY: 1 }, { duration: 0.1 });
   };
 
-  useEffect(() => {
-    // Set visibility after 7.5 seconds
-    const timeout = setTimeout(() => {
-      setIsVisible(true);
-    }, 7500);
+ useEffect(() => {
+   let timeout: ReturnType<typeof setTimeout>;
 
-    return () => clearTimeout(timeout);
-  }, []);
+   if (window.innerWidth >= 768) {
+     timeout = setTimeout(() => {
+       setIsVisible(true);
+     }, 7500);
+   } else {
+     setIsVisible(false);
+   }
+
+   return () => {
+     if (timeout) clearTimeout(timeout);
+   };
+ }, []);
     
-  useEffect(() => {
-     const checkScreenSize = () => {
-       if (window.innerWidth <= 768) {
-         setIsVisible(false);
-       }
-     };
 
-     checkScreenSize(); 
-  }, [])
   
   // Handle mouse enter and leave
   useEffect(() => {
