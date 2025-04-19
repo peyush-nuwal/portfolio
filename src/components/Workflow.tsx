@@ -38,7 +38,7 @@ const steps: step[] = [
   },
   {
     id: 4,
-    icon: <MdOutlineRocket />,
+    icon: <GiRocketFlight />,
     title: "Launch & Refine",
     description:
       "After launch, I monitor performance and optimize for SEO and speed to ensure an excellent user experience.",
