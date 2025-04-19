@@ -26,7 +26,7 @@ const Descriptions: React.FC<DescriptionsProps> = ({
               clipPath: isActive ? "inset(0 0 0 0)" : "inset(50% 0 50% 0)",
             }}
           >
-            <p className="text-[#010101] uppercase font-bold text-4xl lg:text-7xl m-0 relative z-[1]">
+            <p className="text-[#010101] uppercase font-bold text-4xl lg:text-7xl text-nowrap m-0 relative z-[1]">
               {title}
             </p>
             <p className="hidden lg:block w-[30%] text-sm lg:text-base font-bold text-black">

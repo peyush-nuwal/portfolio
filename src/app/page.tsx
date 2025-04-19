@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import Faq from "@/components/Faq";
 import Achievement from "@/components/Achievement";
 import Services from "@/components/Services";
+import Workflow from "@/components/Workflow";
 
 
 
@@ -52,13 +53,14 @@ export default function Home() {
 
   return (
     <main ref={pageRef} className=" h-full w-full">
-      {/* <Loader />
+      <Loader />
       <Nav ref={stickyElementRef} />
       <Hero />
-      <About />*/}
+      <About />
       <Skills />
       <Featured />
       <Services />
+      <Workflow />
       <Achievement />
       <Faq />
       <Footer />
