@@ -49,7 +49,7 @@ export default function ServicesSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full  h-[50vh] lg:h-screen   text-primary px-6  overflow-hidden"
+      className="relative w-full  h-[60vh] lg:h-screen   text-primary px-6  overflow-hidden"
     >
       <div className="absolute top-0 left-0 z-20 w-full h-screen    ">
         <motion.h1
@@ -90,7 +90,7 @@ export default function ServicesSection() {
 
       {/* background with blob */}
       <div className="relative z-0 w-full h-screen overflow-hidden blur-xl ml-0  lg:ml-[15%] ">
-       <Blob/>
+        <Blob />
       </div>
     </section>
   );
