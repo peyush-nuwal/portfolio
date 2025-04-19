@@ -49,7 +49,7 @@ export default function ServicesSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full  h-[70vh] lg:h-screen   text-primary px-6  overflow-hidden"
+      className="relative w-full  h-[50vh] lg:h-screen   text-primary px-6  overflow-hidden"
     >
       <div className="absolute top-0 left-0 z-20 w-full h-screen    ">
         <motion.h1

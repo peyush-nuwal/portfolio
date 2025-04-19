@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { JSX, useRef } from "react";
 import { IoSearchSharp, IoCodeWorkingSharp } from "react-icons/io5"; // Add any other relevant icons
-
 import { FaLaptopCode } from "react-icons/fa"; // Develop
 import { GiRocketFlight } from "react-icons/gi";
 gsap.registerPlugin(ScrollTrigger);
@@ -39,7 +38,7 @@ const steps: step[] = [
   },
   {
     id: 4,
-    icon: <GiRocketFlight />,
+    icon: <MdOutlineRocket />,
     title: "Launch & Refine",
     description:
       "After launch, I monitor performance and optimize for SEO and speed to ensure an excellent user experience.",
