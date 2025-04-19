@@ -80,7 +80,17 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
 
     return () => clearTimeout(timeout);
   }, []);
+    
+  useEffect(() => {
+     const checkScreenSize = () => {
+       if (window.innerWidth <= 768) {
+         setIsVisible(false);
+       }
+     };
 
+     checkScreenSize(); 
+  }, [])
+  
   // Handle mouse enter and leave
   useEffect(() => {
     const stickyRef = stickyElementRef.current;
@@ -131,7 +141,7 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
           width: cursorSize,
           height: cursorSize,
         }}
-        className="fixed top-0 left-0 z-[55] w-8 h-8 bg-accent rounded-full pointer-events-none mix-blend-difference opacity-0 lg:opacity-100"
+        className="fixed top-0 left-0 z-[55] w-8 h-8 bg-accent rounded-full pointer-events-none mix-blend-difference "
         ref={cursor}
       />
     </div>
