@@ -7,7 +7,7 @@ interface quickLinkProps {
     link?: string;
 }
 const QuickLinks: React.FC<quickLinkProps> = ({name,link}) => {
-  return (
+  const content= (
     <motion.li
       whileHover="hover"
       className="links border-b border-b-background/60 pb-1 my-2 flex justify-between items-center overflow-hidden cursor-pointer"
@@ -51,6 +51,13 @@ const QuickLinks: React.FC<quickLinkProps> = ({name,link}) => {
         </motion.span>
       </span>
     </motion.li>
+  );
+  return link ? (
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      {content}
+    </a>
+  ) : (
+    content
   );
 };
 
