@@ -19,22 +19,22 @@ import Marquee from "@/components/Marquee";
 
 export default function Home() {
   const stickyElementRef = useRef<HTMLDivElement | null>(null);
-  const contentRef=useRef<HTMLDivElement|null>(null)
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const pageRef = useRef<HTMLDivElement | null>(null);
   const [disableScroll, setDisableScroll] = useState(true);
   const lenis = useLenis(disableScroll);
-const [showContent, setShowContent] = useState(false);
-  const handleScrollToTop=()=>{
-      if (lenis) {
-        lenis.scrollTo(0, {
-          immediate: false,
-          duration: 1.5,
-          easing: (t) => 1 - Math.pow(1 - t, 4), //
-        });
-      }
+  const [showContent, setShowContent] = useState(false);
+  const handleScrollToTop = () => {
+    if (lenis) {
+      lenis.scrollTo(0, {
+        immediate: false,
+        duration: 1.5,
+        easing: (t) => 1 - Math.pow(1 - t, 4), //
+      });
+    }
 
-      window.scrollTo(0, 0);
-  }
+    window.scrollTo(0, 0);
+  };
   useLayoutEffect(() => {
     document.body.style.overflow = "hidden";
     handleScrollToTop();
@@ -43,21 +43,20 @@ const [showContent, setShowContent] = useState(false);
   useGSAP(() => {
     gsap.from(pageRef.current, {
       duration: 7,
-       onStart:()=>{
-        handleScrollToTop()
-       },
+      onStart: () => {
+        handleScrollToTop();
+      },
       onComplete: () => {
         setDisableScroll(false);
-         setShowContent(true);
+        setShowContent(true);
         document.body.style.overflow = "";
       },
-    })
-      gsap.from(contentRef.current, {
-        opacity: 0,
-        delay: 6.9,
-        duration: 0.1,
-      });
-    
+    });
+    gsap.from(contentRef.current, {
+      opacity: 0,
+      delay: 6.9,
+      duration: 0.1,
+    });
   });
 
   return (
@@ -67,14 +66,24 @@ const [showContent, setShowContent] = useState(false);
       <Hero />
       {showContent && (
         <div ref={contentRef}>
-          <About />
+          <section id="#about">
+            <About />
+          </section>
           <Skills />
-          <Featured />
-          <Services />
+          <section id="service">
+            <Services />
+          </section>
+          <section id="#project">
+            <Featured />
+          </section>
           <Workflow />
           <Marquee />
-          <Faq />
-          <Footer />
+          <section id="#faq">
+            <Faq />
+          </section>
+          <section id="#contact">
+            <Footer />
+          </section>
         </div>
       )}
 

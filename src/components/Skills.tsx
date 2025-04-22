@@ -111,7 +111,7 @@ gsap.from(".skill-quote span", {
 
   return (
     <div
-      className="skill-section  p-4  lg:p-10 w-full h-screen  flex flex-col lg:flex-row-reverse  text-primary
+      className="skill-section  p-4  lg:p-10  my-5 lg:my-10 w-full h-screen  flex flex-col lg:flex-row-reverse  text-primary
     "
     >
       <div className="w-full h-fit lg:min-h-full lg:w-1/2  px-2 lg:p-10  flex flex-col overflow-hidden  ">

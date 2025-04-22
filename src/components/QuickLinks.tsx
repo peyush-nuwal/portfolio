@@ -5,12 +5,13 @@ import { FaArrowRight } from 'react-icons/fa';
 interface quickLinkProps {
     name: string;
     link?: string;
+    className?:string
 }
-const QuickLinks: React.FC<quickLinkProps> = ({name,link}) => {
+const QuickLinks: React.FC<quickLinkProps> = ({name,link,className}) => {
   const content= (
     <motion.li
       whileHover="hover"
-      className="links border-b border-b-background/60 pb-1 my-2 flex justify-between items-center overflow-hidden cursor-pointer"
+      className={`links border-b border-b-background/60 pb-1 my-2 flex justify-between items-center overflow-hidden cursor-pointer ${className}`}
     >
       <span className=" relative w-full block  ">
         <motion.span

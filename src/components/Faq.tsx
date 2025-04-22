@@ -153,7 +153,7 @@ const Faq = () => {
   return (
     <div
       ref={sectionRef}
-      className="text-primary h-fit lg:min-h-[70vh] lg:h-max  flex flex-col lg:flex-row px-4 lg:px-6"
+      className="text-primary h-fit lg:min-h-[70vh] lg:h-max  flex flex-col lg:flex-row px-4 lg:px-6 my-10 lg:my-16"
     >
       <div className="w-full lg:w-2/5 text-4xl lg:text-5xl font-semibold flex flex-col  p-0 lg:p-8">
         <h1 className="faq-h1 overflow-hidden ">
@@ -192,8 +192,8 @@ const Faq = () => {
           </span>
         </div>
       </div>
-
-      <div className="w-full lg:w-3/5">
+      {/* -------question and answer--------- */}
+      <div className="w-full lg:w-3/5 mt-6 lg:mt-10">
         {personalQnA.map((item, index) => (
           <div className="faq-question overflow-hidden" key={index}>
             <Question question={item.question} answer={item.answer} />

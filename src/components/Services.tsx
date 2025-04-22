@@ -49,7 +49,7 @@ export default function ServicesSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full  h-[60vh] lg:h-screen   text-primary px-6  overflow-hidden"
+      className="relative w-full  h-[60vh] lg:h-screen   text-primary px-6 my-3 lg:my-6  overflow-hidden"
     >
       <div className="absolute top-0 left-0 z-20 w-full h-screen    ">
         <motion.h1
@@ -82,7 +82,7 @@ export default function ServicesSection() {
             </motion.span>
           </div>
         </motion.h1>
-        <div className="mt-8 lg:mt-20 relative">
+        <div className="mt-5 lg:mt-12 relative">
           <Titles data={services} setSelectedProject={setSelectedProject} />
           <Descriptions data={services} selectedProject={selectedProject} />
         </div>

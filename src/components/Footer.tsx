@@ -36,6 +36,11 @@ const navigations = [
     url: "#about",
   },
   {
+    name: "Services",
+    url: "#service",
+  },
+
+  {
     name: "Projects",
     url: "#projects",
   },
@@ -44,10 +49,7 @@ const navigations = [
     name: "FAQ",
     url: "#faq",
   },
-  {
-    name: "Contact",
-    url: "#contact",
-  },
+ 
 ];
 
 const Footer = () => {
@@ -123,7 +125,7 @@ const Footer = () => {
   return (
     <div
       ref={footerRef}
-      className="relative text-background flex flex-col justify-between min-h-screen h-max lg:h-[90vh]  p-3 lg:p-5 mt-12 lg:mt-20  bg-accent"
+      className="relative text-background flex flex-col justify-between min-h-screen h-max lg:h-[90vh]  p-3 lg:p-5 mt-20  bg-accent"
     >
       <div className="w-full h-full flex flex-col lg:flex-row items-start justify-between">
         {/* ------heading-------- */}

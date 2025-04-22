@@ -115,7 +115,7 @@ const About = () => {
           </motion.span>
         </div>
       </motion.h1>
-      <div className="relative w-full h-1/2   ">
+      <div className="relative w-full h-1/2 mt-5 lg:mt-8   ">
         <div
           ref={maskRef}
           style={{

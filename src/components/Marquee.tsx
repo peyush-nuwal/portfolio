@@ -76,7 +76,7 @@ const Marquee = () => {
           return (
             <div
               key={index}
-              className={` relative text-8xl flex items-center justify-center shrink-0  rounded-full text-primary text-nowrap ${
+              className={` relative text-5xl lg:text-8xl flex items-center justify-center shrink-0  rounded-full text-primary text-nowrap ${
                 isLast && "mr-10"
               }`}
             >
