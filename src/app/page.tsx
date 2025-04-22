@@ -36,7 +36,9 @@ export default function Home() {
     window.scrollTo(0, 0);
   };
   useLayoutEffect(() => {
-    document.body.style.overflow = "hidden";
+    const page=pageRef.current
+    if(!page)return;
+    page.style.overflow = "hidden";
     handleScrollToTop();
   }, [lenis]);
 
@@ -47,9 +49,12 @@ export default function Home() {
         handleScrollToTop();
       },
       onComplete: () => {
+             const page = pageRef.current;
+             if (!page) return;
         setDisableScroll(false);
         setShowContent(true);
-        document.body.style.overflow = "";
+ 
+      page.style.overflow = "";
       },
     });
     gsap.from(contentRef.current, {
@@ -61,12 +66,12 @@ export default function Home() {
 
   return (
     <main ref={pageRef} className=" h-full w-full">
-      <Loader />
+      {/* <Loader />
       <Nav ref={stickyElementRef} />
-      <Hero />
+      <Hero /> */}
       {showContent && (
         <div ref={contentRef}>
-          <section id="#about">
+          {/* <section id="#about">
             <About />
           </section>
           <Skills />
@@ -80,7 +85,7 @@ export default function Home() {
           <Marquee />
           <section id="#faq">
             <Faq />
-          </section>
+          </section> */}
           <section id="#contact">
             <Footer />
           </section>

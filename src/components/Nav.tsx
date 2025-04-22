@@ -18,8 +18,8 @@ const Nav = forwardRef<HTMLDivElement>((props, ref) => {
       setNavOpen(!navOpen)
    } 
    useGSAP(()=>{
-      gsap.from(navRef.current,{
-         y:-60,
+      gsap.to(navRef.current,{
+         y:64,
          delay:8.5,
          duration:1.5,
          ease:'easeIn'
@@ -28,7 +28,7 @@ const Nav = forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <div
       ref={navRef}
-      className="fixed z-[999] top-0 left-0 h-16 w-screen  flex justify-end items-center px-4 lg:px-6   "
+      className="fixed z-[999] -top-16 left-0 h-16 w-screen  flex justify-end items-center px-4 lg:px-6   "
     >
       
       <Magentic>
