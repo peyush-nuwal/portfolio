@@ -1,6 +1,6 @@
 "use client";
 import Hero from "@/components/Hero";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Cursor from "@/components/Cursor";
 import Nav from "@/components/Nav";
 import About from "@/components/About";
@@ -19,31 +19,45 @@ import Marquee from "@/components/Marquee";
 
 export default function Home() {
   const stickyElementRef = useRef<HTMLDivElement | null>(null);
+  const contentRef=useRef<HTMLDivElement|null>(null)
   const pageRef = useRef<HTMLDivElement | null>(null);
-  const [disableScroll, setDisableScroll] = useState(false);
+  const [disableScroll, setDisableScroll] = useState(true);
   const lenis = useLenis(disableScroll);
+const [showContent, setShowContent] = useState(false);
+  const handleScrollToTop=()=>{
+      if (lenis) {
+        lenis.scrollTo(0, {
+          immediate: false,
+          duration: 1.5,
+          easing: (t) => 1 - Math.pow(1 - t, 4), //
+        });
+      }
 
-  useEffect(() => {
-    if (lenis) {
-      lenis.scrollTo(0, {
-        immediate: false,
-        duration: 1.5,
-        easing: (t) => 1 - Math.pow(1 - t, 4), //
-      });
-    }
-
-    window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
+  }
+  useLayoutEffect(() => {
+     document.body.style.overflow = "hidden";
+    handleScrollToTop();
   }, [lenis]);
 
   useGSAP(() => {
     gsap.from(pageRef.current, {
       duration: 7,
-
+       onStart:()=>{
+        handleScrollToTop()
+       },
       onComplete: () => {
         setDisableScroll(false);
+         setShowContent(true);
         document.body.style.overflow = "";
       },
-    });
+    })
+      gsap.from(contentRef.current, {
+        opacity: 0,
+        delay: 6.9,
+        duration: 0.1,
+      });
+    
   });
 
   return (
@@ -51,16 +65,18 @@ export default function Home() {
       <Loader />
       <Nav ref={stickyElementRef} />
       <Hero />
-      <About />
-      <Skills />
-      <Featured />
-      <Services />
-       <Workflow />
-       <Marquee />
-      <Faq /> 
-      
-      <Footer />
-    
+      {showContent && (
+        <div ref={contentRef}>
+          <About />
+          <Skills />
+          <Featured />
+          <Services />
+          <Workflow />
+          <Marquee />
+          <Faq />
+          <Footer />
+        </div>
+      )}
 
       {/* Cursor component*/}
       <Cursor stickyElementRef={stickyElementRef} />
