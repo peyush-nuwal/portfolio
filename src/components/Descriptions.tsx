@@ -12,6 +12,8 @@ const Descriptions: React.FC<DescriptionsProps> = ({
   data,
   selectedProject,
 }) => {
+
+  const crop=(text: string,leng:number) => {return text.slice(0, leng);}
   return (
     <div className="absolute top-0 left-0 w-full h-full z-20 pointer-events-none">
       {data.map((project, i) => {
@@ -27,7 +29,7 @@ const Descriptions: React.FC<DescriptionsProps> = ({
             }}
           >
             <p className="text-[#010101] uppercase font-bold text-4xl lg:text-7xl  m-0 relative z-[1]">
-              {title}
+              {crop(title,20)}
             </p>
             <p className="hidden lg:block w-[30%] text-sm lg:text-base font-bold text-black">
               {description}

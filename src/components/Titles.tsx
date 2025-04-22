@@ -70,7 +70,7 @@ const Title:React.FC<TitleProps>=({title,index,speed,setSelectedProject})=>{
           <p className="text-primary ">{title}</p>
         </motion.div>
 
-        <p className=" relative z-0 block text-black ">{title}</p>
+        <p className=" relative z-0 block text-neutral-700 ">{title}</p>
       </div>
     </div>
   );

@@ -1,9 +1,207 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import Question from './Question';
+import Btn from './Btn';
+import { FaArrowRight } from "react-icons/fa";
+import {  FaRegCommentDots } from "react-icons/fa6";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+export interface PersonalQnA {
+  question: string;
+  answer: string;
+}
+ const personalQnA: PersonalQnA[] = [
+  {
+    question: "What do you specialize in?",
+    answer:
+      "I specialize in building interactive frontend components with smooth animations and clean code. I love crafting user experiences that feel intuitive and delightful.",
+  },
+  {
+    question: "Which technologies are you most comfortable with?",
+    answer:
+      "I'm most confident with React, TypeScript, Tailwind CSS, and animation libraries like GSAP and Framer Motion. These tools help me bring ideas to life quickly and beautifully.",
+  },
+  {
+    question: "What kind of projects do you enjoy working on?",
+    answer:
+      "I enjoy working on portfolio websites, animated UI/UX components, and anything that challenges my creativity. Projects that blend design and logic are my favorite.",
+  },
+  {
+    question: "Are you open for freelance or internship opportunities?",
+    answer:
+      "Yes! I'm actively looking for internships and freelance opportunities where I can learn, grow, and contribute meaningfully to real-world projects.",
+  },
+  {
+    question: "What motivates you as a frontend developer?",
+    answer:
+      "Solving real problems with code and creating interfaces people actually enjoy using keeps me going. Plus, that moment when everything *just works* — pure joy!",
+  },
+];
 
 const Faq = () => {
+  const sectionRef=useRef<HTMLDivElement | null>(null);
+
+   useGSAP(()=>{
+      const mm = gsap.matchMedia();
+      const faqSection = sectionRef.current;
+      if (!faqSection) return;
+      mm.add("(min-width: 800px)", () => {
+
+        const t1=gsap.timeline({
+          scrollTrigger: {
+            trigger: faqSection,
+            start: "top 50%",
+            end: "bottom 30%",
+            toggleActions: "play none play reverse",
+           
+          }
+          })
+
+        t1.from(".faq-h1 span", {
+          yPercent: 100,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "power2.out",
+        })
+          .from(
+            ".faq-question",
+            {
+              y: 50,
+              opacity: 0,
+              duration: 0.6,
+              stagger: 0.2,
+              ease: "power2.out",
+            },
+            "<"
+          )
+          .from(
+            ".faq-p span span",
+            {
+              yPercent: 100,
+              duration: 0.5,
+              ease: "power2.out",
+            },
+            "-=0.4"
+          ).from(
+            ".faq-btn span",
+            {
+              yPercent: 100,
+              duration: 0.5,
+              ease: "power2.out",
+            },
+            "-=0.3"
+          );
+      });
+
+
+      // ____mobile screen animation____
+      mm.add("(max-width: 799px)", () => {
+        const t2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: faqSection,
+            start: "top 50%",
+            end: "bottom 30%",
+            toggleActions: "play none play reverse",
+           
+          },
+        });
+
+        t2.from(".faq-h1 span", {
+          yPercent: 100,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: "power2.out",
+        })
+         
+          .from(
+            ".faq-p span span",
+            {
+              yPercent: 100,
+              duration: 0.3,
+              ease: "power2.out",
+            },
+           
+          )
+          .from(
+            ".faq-btn span",
+            {
+              yPercent: 100,
+              duration: 0.3,
+              ease: "power2.out",
+            },
+           
+          )
+           .from(
+            ".faq-question",
+            {
+              y: 30,
+              opacity: 0,
+              duration: 0.4,
+              stagger: 0.15,
+              ease: "power2.out",
+            },
+            
+          )
+      });
+
+   })
   return (
-    <div className='text-primary h-screen'>Faq</div>
-  )
+    <div
+      ref={sectionRef}
+      className="text-primary h-fit lg:min-h-[70vh] lg:h-max  flex flex-col lg:flex-row px-4 lg:px-6"
+    >
+      <div className="w-full lg:w-2/5 text-4xl lg:text-5xl font-semibold flex flex-col  p-0 lg:p-8">
+        <h1 className="faq-h1 overflow-hidden ">
+          <span className="block">Got Questions?</span>
+        </h1>
+        <h1 className="faq-h1 overflow-hidden">
+          <span className="block">I’ve Got Answers</span>
+        </h1>
+        <p className="faq-p text-sm lg:text-lg font-light text-primary/80 mt-1 lg:mt-4 max-w-md flex flex-wrap">
+          {`These are some of the most common things people ask me — from what I do to what drives me. If you're curious, you'll find your answers here.`
+            .split(" ")
+            .map((word, index) => (
+              <span key={index} className="block list-none overflow-hidden">
+                <span className="inline-block ml-1">{word}</span>
+              </span>
+            ))}
+        </p>
+        <div className="faq-btn overflow-hidden">
+          <span className="block ">
+            <Btn
+              title={
+                <span className="flex items-center gap-2">
+                  More FAQ <FaRegCommentDots />
+                </span>
+              }
+              subTitle={
+                <span className="flex items-center gap-2">
+                  Let's Talk
+                  <FaArrowRight />
+                </span>
+              }
+              link={"https://www.linkedin.com/in/peyush-nuwal/"}
+              type={"transparent"}
+              titleStyle=" w-fit mt-0 lg:mt-4 text-base lg:text-xl "
+            />
+          </span>
+        </div>
+      </div>
+
+      <div className="w-full lg:w-3/5">
+        {personalQnA.map((item, index) => (
+          <div className="faq-question overflow-hidden" key={index}>
+            <Question question={item.question} answer={item.answer} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Faq

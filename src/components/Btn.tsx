@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import React, { JSX }  from 'react'
+import { motion } from "motion/react";
+import React, { JSX } from "react";
 
 interface BtnProps {
   title: string | JSX.Element;
@@ -7,27 +7,30 @@ interface BtnProps {
   subTitle: string | JSX.Element;
   titleStyle?: string;
   subTitleStyle?: string;
-  onClick?:  React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  link?: string; 
 }
+
 const Btn: React.FC<BtnProps> = ({
   title,
   type = "primary",
   subTitle,
-  titleStyle="",
-  subTitleStyle="",
+  titleStyle = "",
+  subTitleStyle = "",
   onClick = () => {},
+  link, 
 }) => {
-  return (
+  const content = (
     <motion.button
       whileHover="hover"
       onClick={onClick}
-      className={`relative btn btn-${type} inline-flex flex-col  overflow-hidden  ${titleStyle}`}
+      className={`relative btn btn-${type} inline-flex flex-col overflow-hidden ${titleStyle}`}
     >
       <motion.span
         initial={{ y: 0 }}
         variants={{ hover: { y: "-110%" } }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="inline-block text-center  "
+        className="inline-block text-center"
       >
         {title}
       </motion.span>
@@ -39,14 +42,22 @@ const Btn: React.FC<BtnProps> = ({
           type === "primary"
             ? "bg-background text-primary"
             : type === "secondary"
-            ? "bg-accent text-background"
-            : " bg-primary text-background"
-        }    items-center justify-center rounded-full ${subTitleStyle}`}
+            ? "bg-primary text-background"
+            : "bg-primary text-background"
+        } items-center justify-center rounded-full ${subTitleStyle}`}
       >
         <div>{subTitle}</div>
       </motion.span>
     </motion.button>
   );
+
+  return link ? (
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      {content}
+    </a>
+  ) : (
+    content
+  );
 };
 
-export default Btn
+export default Btn;

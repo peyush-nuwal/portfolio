@@ -2,9 +2,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { JSX, useRef } from "react";
-import { IoSearchSharp, IoCodeWorkingSharp } from "react-icons/io5"; // Add any other relevant icons
-import { FaLaptopCode } from "react-icons/fa"; // Develop
-import { GiRocketFlight } from "react-icons/gi";
+import { IoCodeWorkingSharp, IoRocketOutline } from "react-icons/io5"; 
+import { FaLaptopCode } from "react-icons/fa"; 
+import { TbWorldSearch } from "react-icons/tb";
 gsap.registerPlugin(ScrollTrigger);
 
 interface step {
@@ -17,7 +17,7 @@ interface step {
 const steps: step[] = [
   {
     id: 1,
-    icon: <IoSearchSharp />,
+    icon: <TbWorldSearch />,
     title: "Discover",
     description:
       "I begin by understanding the project's goals, audience, and constraints to lay a solid foundation.",
@@ -38,7 +38,7 @@ const steps: step[] = [
   },
   {
     id: 4,
-    icon: <GiRocketFlight />,
+    icon: <IoRocketOutline />,
     title: "Launch & Refine",
     description:
       "After launch, I monitor performance and optimize for SEO and speed to ensure an excellent user experience.",
