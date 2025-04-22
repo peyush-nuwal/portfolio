@@ -125,11 +125,11 @@ const Footer = () => {
   return (
     <div
       ref={footerRef}
-      className="relative text-background flex flex-col justify-between min-h-screen h-max lg:h-[90vh]  p-3 lg:p-5 mt-20  bg-accent"
+      className="relative text-background flex flex-col justify-between  h-max  lg:min-h-screen lg:h-[90vh]  p-6 lg:p-8 mt-20  bg-accent"
     >
       <div className="w-full h-full flex flex-col lg:flex-row items-start justify-between">
         {/* ------heading-------- */}
-        <div className="w-[45%] lg:w-2/5 h-full flex flex-col justify-between ">
+        <div className="w-[60%] lg:w-2/5 h-full flex flex-col justify-between ">
           {/* --------lets start ------- */}
           <div className="w-full lg:w-[65%] uppercase text-4xl lg:text-5xl font-bold ">
             <h1 className="footer-h1-left text-start  overflow-hidden">
@@ -216,7 +216,7 @@ const Footer = () => {
       </div>
 
       {/* -----------footer big heading-------- */}
-      <h1 className="links relative p-3 lg:p-5 uppercase text-4xl lg:text-6xl w-full font-bold  flex justify-between overflow-hidden">
+      <h1 className="links relative p-3 lg:p-5 uppercase mt-32 lg:mt-0 text-4xl lg:text-6xl w-full font-bold  flex justify-between overflow-hidden">
         <span className="block"> Let&apos;s Collaborate </span>
 
         <motion.span whileHover="hover" className="relative  overflow-hidden">
