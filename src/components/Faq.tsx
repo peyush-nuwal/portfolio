@@ -181,7 +181,7 @@ const Faq = () => {
               }
               subTitle={
                 <span className="flex items-center gap-2">
-                  Let's Talk
+                  Let&apos;s Talk
                   <FaArrowRight />
                 </span>
               }
