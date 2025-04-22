@@ -38,7 +38,7 @@ const [showContent, setShowContent] = useState(false);
   useLayoutEffect(() => {
     document.body.style.overflow = "hidden";
     handleScrollToTop();
-  }, [lenis, handleScrollToTop]);
+  }, [lenis]);
 
   useGSAP(() => {
     gsap.from(pageRef.current, {

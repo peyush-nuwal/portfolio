@@ -160,7 +160,7 @@ const Faq = () => {
           <span className="block">Got Questions?</span>
         </h1>
         <h1 className="faq-h1 overflow-hidden">
-          <span className="block">I’ve Got Answers</span>
+          <span className="block">I&apos;ve Got Answers</span>
         </h1>
         <p className="faq-p text-sm lg:text-lg font-light text-primary/80 mt-1 lg:mt-4 max-w-md flex flex-wrap">
           {`These are some of the most common things people ask me — from what I do to what drives me. If you're curious, you'll find your answers here.`
