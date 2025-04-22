@@ -66,12 +66,12 @@ export default function Home() {
 
   return (
     <main ref={pageRef} className=" h-full w-full">
-      {/* <Loader />
+      <Loader />
       <Nav ref={stickyElementRef} />
-      <Hero /> */}
+      <Hero />
       {showContent && (
         <div ref={contentRef}>
-          {/* <section id="#about">
+          <section id="#about">
             <About />
           </section>
           <Skills />
@@ -85,7 +85,7 @@ export default function Home() {
           <Marquee />
           <section id="#faq">
             <Faq />
-          </section> */}
+          </section>
           <section id="#contact">
             <Footer />
           </section>
