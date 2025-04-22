@@ -131,7 +131,7 @@ const Footer = () => {
           {/* --------lets start ------- */}
           <div className="w-full lg:w-[65%] uppercase text-4xl lg:text-5xl font-bold ">
             <h1 className="footer-h1-left text-start  overflow-hidden">
-              <span className="block">Let's Start</span>
+              <span className="block">Let&apos;s Start</span>
             </h1>
             <h1 className="footer-h1-right text-end overflow-hidden ">
               {" "}
@@ -179,7 +179,7 @@ const Footer = () => {
             </div>
             <p className=" links text-sm text-background/70 mt-4 overflow-hidden">
               <span className="block">
-                Currently open for internship opportunities — let's build
+                Currently open for internship opportunities — let&apos;s build
                 something impactful.
               </span>
             </p>
@@ -215,10 +215,8 @@ const Footer = () => {
 
       {/* -----------footer big heading-------- */}
       <h1 className="links relative p-3 lg:p-5 uppercase text-4xl lg:text-6xl w-full font-bold  flex justify-between overflow-hidden">
-        
-          <span className="block"> Let's Collaborate </span>
-          
-        
+        <span className="block"> Let&apos;s Collaborate </span>
+
         <motion.span whileHover="hover" className="relative  overflow-hidden">
           <motion.span
             initial={{ y: "0%", x: "0%", rotate: -45 }}
