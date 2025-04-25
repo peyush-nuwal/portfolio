@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
+import { ScrollProvider } from "@/Context/ScrollContext";
 
 
 
@@ -27,8 +28,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-     
-      <body className={`${raleway.variable} antialiased`}>{children}</body>
+      <body className={`${raleway.variable} antialiased`}>
+        <ScrollProvider>{children}</ScrollProvider>
+      </body>
     </html>
   );
 }

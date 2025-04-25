@@ -29,7 +29,8 @@ const Descriptions: React.FC<DescriptionsProps> = ({
             }}
           >
             <p className="text-[#010101] uppercase font-bold text-4xl lg:text-7xl  m-0 relative z-[1]">
-              {crop(title,20)}
+              <span className="hidden lg:block">{crop(title, 20)}</span>
+              <span className="block lg:hidden">{title}</span>
             </p>
             <p className="hidden lg:block w-[30%] text-sm lg:text-base font-bold text-black">
               {description}

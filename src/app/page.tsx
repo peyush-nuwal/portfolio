@@ -24,12 +24,13 @@ export default function Home() {
   const [disableScroll, setDisableScroll] = useState(true);
   const lenis = useLenis(disableScroll);
   const [showContent, setShowContent] = useState(false);
+
   const handleScrollToTop = () => {
     if (lenis) {
       lenis.scrollTo(0, {
         immediate: false,
         duration: 1.5,
-        easing: (t) => 1 - Math.pow(1 - t, 4), //
+        easing: (t) => 1 - Math.pow(1 - t, 4), 
       });
     }
 
@@ -37,24 +38,31 @@ export default function Home() {
   };
   useLayoutEffect(() => {
     const page=pageRef.current
+    
     if(!page)return;
+   
     page.style.overflow = "hidden";
     handleScrollToTop();
   }, [lenis]);
 
   useGSAP(() => {
-    gsap.from(pageRef.current, {
+    const page = pageRef.current;
+     
+
+     if (!page) return;
+    
+     
+    gsap.from(page, {
       duration: 7,
       onStart: () => {
         handleScrollToTop();
       },
       onComplete: () => {
-             const page = pageRef.current;
-             if (!page) return;
+        
         setDisableScroll(false);
         setShowContent(true);
- 
-      page.style.overflow = "";
+
+        page.style.overflow = "";
       },
     });
     gsap.from(contentRef.current, {
@@ -64,29 +72,33 @@ export default function Home() {
     });
   });
 
+
   return (
     <main ref={pageRef} className=" h-full w-full">
       <Loader />
-      <Nav ref={stickyElementRef} />
+      <Nav
+        ref={stickyElementRef}
+      
+      />
       <Hero />
       {showContent && (
         <div ref={contentRef}>
-          <section id="#about">
+          <section id="about">
             <About />
           </section>
           <Skills />
           <section id="service">
             <Services />
           </section>
-          <section id="#project">
+          <section id="project">
             <Featured />
           </section>
           <Workflow />
           <Marquee />
-          <section id="#faq">
+          <section id="faq">
             <Faq />
           </section>
-          <section id="#contact">
+          <section id="contact">
             <Footer />
           </section>
         </div>

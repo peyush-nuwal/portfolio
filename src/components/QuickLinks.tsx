@@ -1,17 +1,30 @@
-import { motion } from 'motion/react';
-import React from 'react'
-import { FaArrowRight } from 'react-icons/fa';
+import { motion } from "motion/react";
+import { a } from "motion/react-client";
+import Link from "next/link";
+import React from "react";
+import { FaArrowRight } from "react-icons/fa";
 
-interface quickLinkProps {
-    name: string;
-    link?: string;
-    className?:string
+interface QuickLinkProps {
+  name: string;
+  link?: string;
+  className?: string;
+  icon?: boolean;
+  type?: "default" | "url" | "route";
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 }
-const QuickLinks: React.FC<quickLinkProps> = ({name,link,className}) => {
-  const content= (
-    <motion.li
+const QuickLinks: React.FC<QuickLinkProps> = ({
+  name,
+  link,
+  className,
+  icon = true,
+  type = "default",
+  onClick=()=>{},
+}) => {
+  const content = (
+    <motion.div
       whileHover="hover"
-      className={`links border-b border-b-background/60 pb-1 my-2 flex justify-between items-center overflow-hidden cursor-pointer ${className}`}
+      onClick={onClick}
+      className={` border-b border-b-background/60 pb-1 my-2 flex gap-1 justify-between items-center overflow-hidden cursor-pointer ${className}`}
     >
       <span className=" relative w-full block  ">
         <motion.span
@@ -20,7 +33,6 @@ const QuickLinks: React.FC<quickLinkProps> = ({name,link,className}) => {
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="block"
         >
-          {" "}
           {name}
         </motion.span>
         <motion.span
@@ -29,37 +41,50 @@ const QuickLinks: React.FC<quickLinkProps> = ({name,link,className}) => {
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="block absolute top-0 left-0"
         >
-          {" "}
           {name}
         </motion.span>
       </span>
-      <span className="relative  text-base lg:text-xl overflow-hidden ">
-        <motion.span
-          initial={{ y: "0%", x: "0%", rotate: -45 }}
-          variants={{ hover: { y: "-120%", x: "120%", rotate: 0 } }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="block  overflow-hidden"
-        >
-          <FaArrowRight />
-        </motion.span>{" "}
-        <motion.span
-          initial={{ y: "120%", x: "-120%", rotate: -45 }}
-          variants={{ hover: { y: "0%", x: "0%",rotate:-45  } }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="absolute top-0 left-0 leading-0 block  overflow-hidden"
-        >
-          <FaArrowRight />
-        </motion.span>
-      </span>
-    </motion.li>
+      {icon && (
+        <span className="relative w-full h-full text-base lg:text-xl  flex flex-col items-center justify-center overflow-hidden ">
+          <motion.span
+            initial={{ y: "0%", x: "0%", rotate: -45 }}
+            variants={{ hover: { y: "-100%", x: "150%", rotate: 0 } }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="flex items-center justify-center  overflow-hidden  "
+          >
+            <FaArrowRight />
+          </motion.span>{" "}
+          <motion.span
+            initial={{ y: "150%", x: "-100%", rotate: -45 }}
+            variants={{ hover: { y: "10%", x: "10%", rotate: -45 } }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="absolute top-0 left-0 leading-0   flex items-center justify-center overflow-hidden"
+          >
+            <FaArrowRight />
+          </motion.span>
+        </span>
+      )}
+    </motion.div>
   );
-  return link ? (
-    <a href={link} target="_blank" rel="noopener noreferrer">
+
+  if (type === "url" && link) {
+    const isExternal = link.startsWith("http");
+    return isExternal ? (
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        {content}
+      </a>
+    ) : (
+     <a href={link}>
       {content}
-    </a>
-  ) : (
-    content
-  );
+     </a>
+    );
+  }
+
+  if (type === "route" && link) {
+    return <Link href={link}>{content}</Link>;
+  }
+
+  return content;
 };
 
-export default QuickLinks
+export default QuickLinks;

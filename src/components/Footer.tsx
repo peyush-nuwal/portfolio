@@ -197,7 +197,12 @@ const Footer = () => {
             </h1>
             <ul className="text-sm lg:text-lg font-medium">
               {social.map((social, idx) => (
-                <QuickLinks key={idx} name={social.name} link={social.url} />
+                <QuickLinks
+                  key={idx}
+                  name={social.name}
+                  link={social.url}
+                  className="links"
+                />
               ))}
             </ul>
           </div>
@@ -208,7 +213,12 @@ const Footer = () => {
             </h1>
             <ul className="text-sm lg:text-lg  font-medium">
               {navigations.map((nav, idx) => (
-                <QuickLinks key={idx} name={nav.name} link={nav.url} />
+                <QuickLinks
+                  key={idx}
+                  name={nav.name}
+                  link={nav.url}
+                  className="links"
+                />
               ))}
             </ul>
           </div>
