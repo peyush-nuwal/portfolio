@@ -147,7 +147,7 @@ const handleEnter = () => {
   };
 
 
-  const { title, label, type,url } = projects[index];
+  const { title, label, url } = projects[index];
   const isFirst = index === 0;
 
   return (
@@ -231,7 +231,7 @@ const Featured = () => {
     <div className="min-h-screen  py-20 text-primary relative">
       <motion.h1
         whileHover="hover"
-        className=" w-fit text-accent font-bold  text-3xl lg:text-5xl px-4 lg:px-8 py-1 mb-0 mb-5 lg:mb-16 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
+        className=" w-fit text-accent font-bold  text-3xl lg:text-5xl px-4 lg:px-8 py-1 mb-5 lg:mb-16 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
       >
         <span className="inline-block stroke-text text-background group-hover:text-accent text-4xl  lg:text-6xl ">
           /
