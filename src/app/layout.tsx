@@ -3,7 +3,7 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import { ScrollProvider } from "@/Context/ScrollContext";
 
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
 const raleway = Raleway({
@@ -30,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${raleway.variable} antialiased`}>
         <ScrollProvider>{children}</ScrollProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
