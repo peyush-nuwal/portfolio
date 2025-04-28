@@ -34,7 +34,7 @@ const navOptions: NavOption[] = [
   },
   {
     name: "Projects",
-    path: "/projects",
+    path: "/Projects",
     type: "route",
   },
   {
@@ -104,7 +104,7 @@ const Nav = forwardRef<HTMLDivElement>(
             isMobile: "(max-width: 800px)",
           },
           (context) => {
-            const { isDesktop, isMobile } = context.conditions as {
+            const {  isMobile } = context.conditions as {
               isDesktop: boolean;
               isMobile: boolean;
             };

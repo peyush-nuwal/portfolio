@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { a } from "motion/react-client";
+
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";

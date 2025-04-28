@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useRef, useEffect, useState } from "react";
+import { createContext, useContext,  useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 
 type ScrollContextType = {
