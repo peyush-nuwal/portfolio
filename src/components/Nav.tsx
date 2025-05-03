@@ -1,89 +1,35 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import { motion } from "motion/react";
-import React, {
-  useState,
-  useRef,
-  forwardRef,
-
-} from "react";
+import React, {  useRef, forwardRef } from "react";
 import { gsap } from "gsap";
 import Magentic from "./Magentic";
 import QuickLinks from "./QuickLinks";
 import { useScroll } from "@/Context/ScrollContext";
+import { social } from "../../public/data/Social";
+import { navOptions } from "../../public/data/Navigation";
+
+
+
+type NavProps = {
+  navOpen: boolean;
+  setNavOpen: (val: boolean) => void;
+};
 
 
 
 
-interface NavOption {
-  name: string;
-  path: string;
-  type: "route" | "url";
-}
-
-const navOptions: NavOption[] = [
-  {
-    name: "Home",
-    path: "/",
-    type: "route",
-  },
-  {
-    name: "About",
-    path: "#about",
-    type: "route",
-  },
-  {
-    name: "Projects",
-    path: "/Projects",
-    type: "route",
-  },
-  {
-    name: "Contact",
-    path: "#contact",
-    type: "route",
-  },
-];
-
-const social = [
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/yourprofile",
-  },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/yourhandle",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/yourusername",
-  },
-  {
-    name: "Figma",
-    url: "https://www.figma.com/@yourusername",
-  },
-];
-
-const Nav = forwardRef<HTMLDivElement>(
-  ( {},ref) => {
-    const [navOpen, setNavOpen] = useState<boolean>(false);
+const Nav = forwardRef<HTMLDivElement, NavProps>(
+  ({ navOpen, setNavOpen }, ref) => {
+    
     const navRef = useRef<HTMLDivElement | null>(null);
     const menuRef = useRef<HTMLDivElement | null>(null);
     const videoRef = useRef<HTMLDivElement | null>(null);
 
     const { scrollToSection } = useScroll();
 
-    const handleHamburger = () => {
-      setNavOpen(!navOpen);
-      
-    };
-    
-
-    const handleScrollToSection = (path: string) => {
-      if (path.startsWith("#")) {
-        scrollToSection(path.substring(1));
-        setNavOpen(false);
-      
-      }
+    const toggleMenu = () => {
+    setNavOpen(!navOpen);
     };
 
     useGSAP(() => {
@@ -104,7 +50,7 @@ const Nav = forwardRef<HTMLDivElement>(
             isMobile: "(max-width: 800px)",
           },
           (context) => {
-            const {  isMobile } = context.conditions as {
+            const { isMobile } = context.conditions as {
               isDesktop: boolean;
               isMobile: boolean;
             };
@@ -144,21 +90,27 @@ const Nav = forwardRef<HTMLDivElement>(
                     ease: "power2.inOut",
                   },
                   "<"
-                );
+                )
+                .to(".nav-cover", {
+                  display: "none",
+                });
             }
           }
         );
       } else {
         const t1 = gsap.timeline();
-        t1.to(
-          videoRef.current,
-          {
-            width: 0,
-            duration: 0.8,
-            ease: "power2.inOut",
-          },
-          "<"
-        )
+        t1.to(".nav-cover", {
+          display: "block",
+        })
+          .to(
+            videoRef.current,
+            {
+              width: 0,
+              duration: 0.8,
+              ease: "power2.inOut",
+            },
+            "<"
+          )
           .to(
             ".nav-links span",
             {
@@ -194,7 +146,7 @@ const Nav = forwardRef<HTMLDivElement>(
           <Magentic>
             <div
               ref={ref}
-              onClick={handleHamburger}
+              onClick={toggleMenu}
               className="relative z-[999]   flex flex-col justify-center gap-2  w-12 h-12 cursor-pointer group  mix-blend-difference"
             >
               <motion.div
@@ -246,28 +198,33 @@ const Nav = forwardRef<HTMLDivElement>(
                 ></video>
               </div>
             </div>
-            <div className="w-full lg:w-1/2  h-1/2 lg:h-full  flex flex-col  pl-[5%] lg:pl-0 justify-center  ">
+            <div className="relative z-5 w-full lg:w-1/2  h-1/2 lg:h-full  flex flex-col  pl-[5%] lg:pl-0 justify-center  ">
               {navOptions.map((opt, idx) => (
                 <QuickLinks
                   key={idx}
                   name={opt.name}
                   link={opt.path}
-                  type={opt.type}
                   icon={false}
-                  onClick={() => handleScrollToSection(opt.path)}
+                  type="route"
+                  onClick={() => {
+                    toggleMenu();
+                    if (opt.path.startsWith("#"))
+                      scrollToSection(opt.path.slice(1));
+                  }}
                   className="nav-links text-5xl w-fit   lg:text-7xl -mt-2  font-bold border-none pb-0 my-0"
                 />
               ))}
+              <div className="nav-cover absolute top-0 left-0 z-10  w-full h-full pointer-events-auto  bg-transparent0"></div>
             </div>
           </div>
-          <div className="h-full lg:h-[10%]   w-fit lg:w-[98%] mx-auto border-t-none lg:border-t lg:border-t-background  px-2 flex flex-col lg:flex-row justify-start items-end lg:items-center   lg:justify-end  mt-[20%] lg:mt-0 lg:gap-3 ">
+          <div className="h-full lg:h-[10%]   w-fit lg:w-[98%] mx-auto border-t-none lg:border-t lg:border-t-background  px-2 flex flex-col lg:flex-row justify-start items-end lg:items-center   lg:justify-end  mt-[20%] lg:mt-0 lg:gap-3  ">
             {social.map((social, idx) => (
               <QuickLinks
                 key={idx}
                 name={social.name}
                 link={social.url}
-                type={"url"}
-                className="nav-socials text-lg border-none pb-0 my-0 -mt-3 lg:mt-0"
+                type="url"
+                className="w-full nav-socials text-lg  border-none !pb-0 !my-0 !-mt-3 lg:!mt-0 "
               />
             ))}
           </div>
@@ -279,5 +236,3 @@ const Nav = forwardRef<HTMLDivElement>(
 
 Nav.displayName = "Nav";
 export default Nav;
-
-

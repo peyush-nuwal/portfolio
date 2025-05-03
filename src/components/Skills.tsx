@@ -1,55 +1,27 @@
 import React from "react";
 import Btn from "./Btn";
-import { BsLinkedin, BsTwitterX ,BsDownload} from "react-icons/bs";
+import { BsLinkedin, BsTwitterX, BsDownload } from "react-icons/bs";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import {
+  backendSkills,
+  frontendSkills,
+  uiSkills,
+} from "../../public/data/Tech";
 
-gsap.registerPlugin(ScrollTrigger)
-
-const frontendSkills = [
-  "TypeScript",
-  "Next.js",
-  "React.js",
-  "Vue.js",
-  "Figma",
-  "JavaScript",
-  "HTML5",
-  "CSS3",
-  "Jest",
-  "React Testing Library",
-];
-
-const uiSkills = [
-  "Tailwind CSS",
-  "Sass/SCSS",
-  "Material UI",
-  "Framer Motion",
-  "GSAP",
-];
-
-const backendSkills = [
-  "Node.js",
-  "Express.js",
-  "REST API",
-  "MongoDB",
-  "MySQL",
-  "DBMS",
-  "Fetch API",
-];
+gsap.registerPlugin(ScrollTrigger);
 
 const Skills = () => {
+  const quote = `'' My goal is to Write Maintainable, clean  and Understandable code to process development was enjoyable ''`;
 
-   const quote = `'' My goal is to Write Maintainable, clean  and Understandable code to process development was enjoyable ''`;
-
-
-   const handleDownload=(e:React.MouseEvent<HTMLButtonElement>)=>{
-        e.preventDefault()
-        const link = document.createElement("a");
-        link.href='/resume.pdf'
-        link.download='/resume.pdf'
-        link.click()
-   }
+  const handleDownload = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "/resume.pdf";
+    link.click();
+  };
 
   useGSAP(() => {
     gsap.from(".card", {
@@ -65,48 +37,41 @@ const Skills = () => {
         scrub: 1.8,
       },
     });
-gsap.from(".skill-lines", {
-  y: "150%",
-  duration: 0.8,
-  ease: "power3.out",
 
-  scrollTrigger: {
-    trigger: ".skill-section",
-    start: "top 30%",
-    end: "top 30%",
+    gsap.from(".skill-lines", {
+      y: "150%",
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".skill-section",
+        start: "top 30%",
+        end: "top 30%",
+        toggleActions: "play none none reverse",
+      },
+    });
 
-    toggleActions: "play none none reverse",
-   
-  },
-});
-
-gsap.from(".skill-btn", {
-  y: "150%",
-  duration: 0.8,
-  ease: "power3.out",
-  scrollTrigger: {
-    trigger: ".skill-section",
-    start: "top 28%",
-    end: "top 28%",
-
-    toggleActions: "play none none reverse",
-
-  },
-});
-gsap.from(".skill-quote span", {
-  y: "150%",
-  duration: 0.8,
-  ease: "power3.out",
-  scrollTrigger: {
-    trigger: ".skill-section",
-    start: "60% 80%",
-    end: "bottom 20%",
-
-    toggleActions: "play none none reverse",
-   
-  },
-});
-
+    gsap.from(".skill-btn", {
+      y: "150%",
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".skill-section",
+        start: "top 28%",
+        end: "top 28%",
+        toggleActions: "play none none reverse",
+      },
+    });
+    gsap.from(".skill-quote span", {
+      y: "150%",
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".skill-section",
+        start: "60% 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+      },
+    });
   });
 
   return (

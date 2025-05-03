@@ -45,20 +45,20 @@ const QuickLinks: React.FC<QuickLinkProps> = ({
         </motion.span>
       </span>
       {icon && (
-        <span className="relative w-full h-full text-base lg:text-xl  flex flex-col items-center justify-center overflow-hidden ">
+        <span className="relative w-fit h-full text-base lg:text-xl  flex flex-col items-center justify-center overflow-hidden  ">
           <motion.span
             initial={{ y: "0%", x: "0%", rotate: -45 }}
-            variants={{ hover: { y: "-100%", x: "150%", rotate: 0 } }}
+            variants={{ hover: { y: "-75%", x: "80%", rotate: -45 } }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="flex items-center justify-center  overflow-hidden  "
+            className="flex items-center justify-center h-full w-full      "
           >
             <FaArrowRight />
           </motion.span>{" "}
           <motion.span
-            initial={{ y: "150%", x: "-100%", rotate: -45 }}
-            variants={{ hover: { y: "10%", x: "10%", rotate: -45 } }}
+            initial={{ y: "75%", x: "-80%", rotate: -45 }}
+            variants={{ hover: { y: "0%", x: "0%", rotate: -45 } }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-0 left-0 leading-0   flex items-center justify-center overflow-hidden"
+            className="absolute top-0 left-0 leading-0 h-full w-full   flex items-center justify-center "
           >
             <FaArrowRight />
           </motion.span>

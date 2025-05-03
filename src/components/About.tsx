@@ -4,21 +4,18 @@ import { ScrollTrigger } from "gsap/all";
 import { motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 
-
-
-
 gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  
+
   const maskRef = useRef<HTMLDivElement>(null);
 
-  const underText = `hi,my name is peyush , and i try to make the web a better place by creating dynamic and responsive web applications. i enjoy learning new technologies and continuously improving my skills.`;
-   
-  const maskText = `hi,my name is peyush , and i try to make the web a better place by creating dynamic and responsive web applications. i enjoy learning new technologies and continuously improving my skills.`;
+ const maskText = `Hey! I'm Peyush, a web enthusiast on a mission to make every website I build faster, smoother, and more fun. I love experimenting with new tech, and when I'm not coding, you can catch me learning new tricks or catching up on the latest trends.`;
+
+ const underText = `Hey there! I'm Peyush, a self-proclaimed web wizard on a mission to make the internet a better place—one dynamic website at a time. When I'm not coding, you can find me binge-watching tech tutorials or battling the bugs that come my way.`;
 
 
-  useGSAP(()=>{
+  useGSAP(() => {
     gsap.from(".about-reval", {
       y: "100%",
       duration: 0.8,
@@ -43,14 +40,14 @@ const About = () => {
         once: true,
       },
     });
-  })
+  });
   useEffect(() => {
     const mouseMove = (e: MouseEvent) => {
       if (!maskRef.current) return;
       const rect = maskRef.current?.getBoundingClientRect();
       const maskSize = isHovered ? 300 : 0;
-    const x = e.clientX - rect.left - maskSize / 2;
-    const y = e.clientY - rect.top - maskSize / 2;
+      const x = e.clientX - rect.left - maskSize / 2;
+      const y = e.clientY - rect.top - maskSize / 2;
 
       gsap.to(maskRef.current, {
         maskPosition: `${x}px ${y}px`,
@@ -81,7 +78,6 @@ const About = () => {
       ease: "easeInOut",
     });
   };
-
 
   return (
     <div className="relative w-full h-[70vh]    bg-background text-primary py-2 lg:py-10 ">
@@ -155,7 +151,14 @@ const About = () => {
               <p key={idx} className="mr-3 overflow-hidden py-[4px]">
                 <span
                   className={`inline-block ${
-                    c === "creating" || c === "dynamic"
+                    c === "web" ||
+                    c === "enthusiast" ||
+                    c === "build" ||
+                    c === "faster," ||
+                    c === "smoother," ||
+                    c === "more" ||
+                    c === "fun." ||
+                    c === "new"
                       ? "text-accent"
                       : "text-primary"
                   } about-reval`}

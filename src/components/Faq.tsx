@@ -6,42 +6,13 @@ import {  FaRegCommentDots } from "react-icons/fa6";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { Qna } from '../../public/data/Qna';
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 
-export interface PersonalQnA {
-  question: string;
-  answer: string;
-}
- const personalQnA: PersonalQnA[] = [
-  {
-    question: "What do you specialize in?",
-    answer:
-      "I specialize in building interactive frontend components with smooth animations and clean code. I love crafting user experiences that feel intuitive and delightful.",
-  },
-  {
-    question: "Which technologies are you most comfortable with?",
-    answer:
-      "I'm most confident with React, TypeScript, Tailwind CSS, and animation libraries like GSAP and Framer Motion. These tools help me bring ideas to life quickly and beautifully.",
-  },
-  {
-    question: "What kind of projects do you enjoy working on?",
-    answer:
-      "I enjoy working on portfolio websites, animated UI/UX components, and anything that challenges my creativity. Projects that blend design and logic are my favorite.",
-  },
-  {
-    question: "Are you open for freelance or internship opportunities?",
-    answer:
-      "Yes! I'm actively looking for internships and freelance opportunities where I can learn, grow, and contribute meaningfully to real-world projects.",
-  },
-  {
-    question: "What motivates you as a frontend developer?",
-    answer:
-      "Solving real problems with code and creating interfaces people actually enjoy using keeps me going. Plus, that moment when everything *just works* — pure joy!",
-  },
-];
+
 
 const Faq = () => {
   const sectionRef=useRef<HTMLDivElement | null>(null);
@@ -194,9 +165,9 @@ const Faq = () => {
       </div>
       {/* -------question and answer--------- */}
       <div className="w-full lg:w-3/5 mt-6 lg:mt-10">
-        {personalQnA.map((item, index) => (
+        {Qna.map((ques, index) => (
           <div className="faq-question overflow-hidden" key={index}>
-            <Question question={item.question} answer={item.answer} />
+            <Question question={ques.question} answer={ques.answer} />
           </div>
         ))}
       </div>

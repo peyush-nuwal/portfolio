@@ -1,32 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 
 export default function useLenis(disableScroll: boolean) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
+  const disableScrollRef = useRef(disableScroll);
+
+  useEffect(() => {
+    disableScrollRef.current = disableScroll; // keep track of latest disableScroll value
+  }, [disableScroll]);
 
   useEffect(() => {
     const lenisInstance = new Lenis({
-      
       lerp: 0.1,
     });
+    setLenis(lenisInstance);
 
-    setLenis(lenisInstance); // Store Lenis instance
-
+    // Add RAF to keep checking for scroll updates
     const updateScroll = (time: number) => {
-      if (!disableScroll) lenisInstance.raf(time);
+      if (!disableScrollRef.current) {
+        lenisInstance.raf(time);
+      }
+      requestAnimationFrame(updateScroll);
     };
 
-    function raf(time: number) {
-      updateScroll(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+    requestAnimationFrame(updateScroll); // start the scroll loop
 
     return () => {
-      lenisInstance.destroy();
+      lenisInstance.destroy(); // Cleanup on unmount
     };
-  }, [disableScroll]);
+  }, []); // Empty dependency array ensures it runs only on mount/unmount
 
-  return lenis; // Return Lenis instance so we can use lenis.scrollTo()
+  return lenis;
 }

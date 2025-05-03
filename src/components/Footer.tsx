@@ -5,56 +5,18 @@ import { motion } from 'motion/react';
 import React, { useRef } from 'react'
 import { FaArrowRight } from "react-icons/fa";
 import QuickLinks from './QuickLinks';
+import { useScroll } from '@/Context/ScrollContext';
+import { social } from '../../public/data/Social';
+import { navOptions } from '../../public/data/Navigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const social = [
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/yourprofile",
-  },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/yourhandle",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/yourusername",
-  },
-  {
-    name: "Figma",
-    url: "https://www.figma.com/@yourusername",
-  },
 
-
-];
-
-const navigations = [
-  
-  {
-    name: "About",
-    url: "#about",
-  },
-  {
-    name: "Services",
-    url: "#service",
-  },
-
-  {
-    name: "Projects",
-    url: "#projects",
-  },
-  
-  {
-    name: "FAQ",
-    url: "#faq",
-  },
- 
-];
 
 const Footer = () => {
   const footerRef=useRef<HTMLDivElement|null>(null)
-
+  const { scrollToSection } = useScroll();
+  
   useGSAP(() => {
     const footer=footerRef.current;
     if (!footer) return;
@@ -212,12 +174,17 @@ const Footer = () => {
               <span className="block ">Quick links</span>
             </h1>
             <ul className="text-sm lg:text-lg  font-medium">
-              {navigations.map((nav, idx) => (
+              {navOptions.map((nav, idx) => (
                 <QuickLinks
                   key={idx}
                   name={nav.name}
-                  link={nav.url}
-                  className="links"
+                  
+                  type="route"
+                  onClick={() => {
+                   
+                    if (nav.path.startsWith("#"))
+                      scrollToSection(nav.path.slice(1));
+                  }}
                 />
               ))}
             </ul>
@@ -243,6 +210,9 @@ const Footer = () => {
             variants={{ hover: { y: "0%", x: "0%", rotate: -45 } }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="absolute top-0 left-0 leading-0 block  overflow-hidden"
+            onClick={()=>
+                      scrollToSection("hero")
+                  }
           >
             <FaArrowRight />
           </motion.span>

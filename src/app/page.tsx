@@ -1,6 +1,6 @@
 "use client";
 import Hero from "@/components/Hero";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Cursor from "@/components/Cursor";
 import Nav from "@/components/Nav";
 import About from "@/components/About";
@@ -18,12 +18,31 @@ import Workflow from "@/components/Workflow";
 import Marquee from "@/components/Marquee";
 
 export default function Home() {
-  const stickyElementRef = useRef<HTMLDivElement | null>(null);
-  const contentRef = useRef<HTMLDivElement | null>(null);
   const pageRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const stickyElementRef = useRef<HTMLDivElement | null>(null);
+
+  const [navOpen, setNavOpen] = useState<boolean>(false)
   const [disableScroll, setDisableScroll] = useState(true);
+  const [loading, setLoading] = useState(true);
+
   const lenis = useLenis(disableScroll);
-  const [showContent, setShowContent] = useState(false);
+   
+
+  useGSAP(() => {
+    if (!pageRef.current || !contentRef.current) return;
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        setDisableScroll(false);
+        setLoading(false);
+        pageRef.current!.style.overflow = "";
+      },
+    });
+
+    tl.to({}, { duration: 6 }) // fake 6s loading
+      .to(contentRef.current, { opacity: 1, duration: 0.5 }, "-=0.1");
+  }, []);
 
   const handleScrollToTop = () => {
     if (lenis) {
@@ -34,16 +53,10 @@ export default function Home() {
       });
     }
 
-    window.scrollTo(0, 0);
-  };
-  useLayoutEffect(() => {
-    const page=pageRef.current
-    
-    if(!page)return;
    
-    page.style.overflow = "hidden";
-    handleScrollToTop();
-  }, [lenis]);
+  };
+
+  
 
   useGSAP(() => {
     const page = pageRef.current;
@@ -60,7 +73,7 @@ export default function Home() {
       onComplete: () => {
         
         setDisableScroll(false);
-        setShowContent(true);
+        setLoading(false);
 
         page.style.overflow = "";
       },
@@ -71,17 +84,16 @@ export default function Home() {
       duration: 0.1,
     });
   });
-
+  
 
   return (
     <main ref={pageRef} className=" h-full w-full">
       <Loader />
-      <Nav
-        ref={stickyElementRef}
-      
-      />
-      <Hero />
-      {showContent && (
+      <Nav ref={stickyElementRef} navOpen={navOpen} setNavOpen={setNavOpen} />
+      <section id="hero">
+        <Hero />
+      </section>
+      {loading === false && (
         <div ref={contentRef}>
           <section id="about">
             <About />
@@ -90,7 +102,7 @@ export default function Home() {
           <section id="service">
             <Services />
           </section>
-          <section id="project">
+          <section id="projects">
             <Featured />
           </section>
           <Workflow />
@@ -109,3 +121,8 @@ export default function Home() {
     </main>
   );
 }
+
+
+
+
+
