@@ -28,19 +28,7 @@ export default function Home() {
 
   const lenis = useLenis(disableScroll);
 
-  useGSAP(() => {
-    if (!pageRef.current ) return;
-
-    const tl = gsap.timeline({
-      onComplete: () => {
-        setDisableScroll(false);
-        setLoading(false);
-        
-      },
-    });
-
-   
-  }, []);
+  
 
   const handleScrollToTop = () => {
     if (lenis) {
@@ -87,9 +75,7 @@ export default function Home() {
           <Workflow />
           <Marquee />
             <Faq />
-          
             <Footer />
-          
         </div>
       )}
 
