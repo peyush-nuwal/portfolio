@@ -32,12 +32,15 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
 
   const rotate = (distance: { x: number; y: number }) => {
     const angle = Math.atan2(distance.y, distance.x);
-    animate(cursor.current, { rotate: `${angle}rad` }, { duration: 0 });
+    if (cursor.current) {
+      animate(cursor.current, { rotate: `${angle}rad` }, { duration: 0 });
+    }
   };
 
   const manageMouseMove = (e: MouseEvent) => {
     if (!stickyElementRef.current) return;
     const { clientX, clientY } = e;
+
     const { left, top, height, width } =
       stickyElementRef.current.getBoundingClientRect();
 
@@ -72,24 +75,22 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
     animate(cursor.current, { scaleX: 1, scaleY: 1 }, { duration: 0.1 });
   };
 
- useEffect(() => {
-   let timeout: ReturnType<typeof setTimeout>;
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
 
-   if (window.innerWidth >= 768) {
-     timeout = setTimeout(() => {
-       setIsVisible(true);
-     }, 7500);
-   } else {
-     setIsVisible(false);
-   }
+    if (window.innerWidth >= 768) {
+      timeout = setTimeout(() => {
+        setIsVisible(true);
+      }, 7500);
+    } else {
+      setIsVisible(false);
+    }
 
-   return () => {
-     if (timeout) clearTimeout(timeout);
-   };
- }, []);
-    
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, []);
 
-  
   // Handle mouse enter and leave
   useEffect(() => {
     const stickyRef = stickyElementRef.current;
@@ -98,19 +99,13 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
     stickyRef.addEventListener("mouseenter", manageMouseOver);
     stickyRef.addEventListener("mouseleave", manageMouseLeave);
     window.addEventListener("mousemove", manageMouseMove);
-      
-    return () => {
-    
 
+    return () => {
       stickyRef.removeEventListener("mouseenter", manageMouseOver);
       stickyRef.removeEventListener("mouseleave", manageMouseLeave);
       window.removeEventListener("mousemove", manageMouseMove);
     };
-  }, [
-    isHovered,
- 
-    stickyElementRef,
-  ]);
+  }, []);
 
   // Template for rotation and scale
   const template = ({

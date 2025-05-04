@@ -35,6 +35,7 @@ export default function Blob() {
         cy="70"
         r="18"
         fill="#ec4e39"
+        initial={{ cx: 100, cy: 70, r: 18 }}
         animate={{
           cx: [100, 120, 110, 100],
           cy: [70, 90, 80, 70],

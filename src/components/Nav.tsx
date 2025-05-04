@@ -1,7 +1,6 @@
 "use client";
-import { useGSAP } from "@gsap/react";
 import { motion } from "motion/react";
-import React, {  useRef, forwardRef } from "react";
+import React, {  useRef, forwardRef, useEffect } from "react";
 import { gsap } from "gsap";
 import Magentic from "./Magentic";
 import QuickLinks from "./QuickLinks";
@@ -17,8 +16,6 @@ type NavProps = {
 };
 
 
-
-
 const Nav = forwardRef<HTMLDivElement, NavProps>(
   ({ navOpen, setNavOpen }, ref) => {
     
@@ -32,7 +29,7 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(
     setNavOpen(!navOpen);
     };
 
-    useGSAP(() => {
+    useEffect(() => {
       const mm = gsap.matchMedia();
       gsap.to(navRef.current, {
         y: 64,
@@ -135,6 +132,7 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(
             ease: "power2.inOut",
           });
       }
+      return () => mm.kill();
     }, [navOpen]);
 
     return (
@@ -214,7 +212,7 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(
                   className="nav-links text-5xl w-fit   lg:text-7xl -mt-2  font-bold border-none pb-0 my-0"
                 />
               ))}
-              <div className="nav-cover absolute top-0 left-0 z-10  w-full h-full pointer-events-auto  bg-transparent0"></div>
+              <div className="nav-cover absolute top-0 left-0 z-10  w-full h-full pointer-events-auto  bg-transparent"></div>
             </div>
           </div>
           <div className="h-full lg:h-[10%]   w-fit lg:w-[98%] mx-auto border-t-none lg:border-t lg:border-t-background  px-2 flex flex-col lg:flex-row justify-start items-end lg:items-center   lg:justify-end  mt-[20%] lg:mt-0 lg:gap-3  ">

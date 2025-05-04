@@ -1,29 +1,24 @@
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import { motion } from 'motion/react';
-import React, { useRef } from 'react'
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { motion } from "motion/react";
+import React, { useRef } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import QuickLinks from './QuickLinks';
-import { useScroll } from '@/Context/ScrollContext';
-import { social } from '../../public/data/Social';
-import { navOptions } from '../../public/data/Navigation';
+import QuickLinks from "./QuickLinks";
+import { useScroll } from "@/Context/ScrollContext";
+import { social } from "../../public/data/Social";
+import { navOptions } from "../../public/data/Navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 const Footer = () => {
-  const footerRef=useRef<HTMLDivElement|null>(null)
+  const footerRef = useRef<HTMLDivElement | null>(null);
   const { scrollToSection } = useScroll();
-  
-  useGSAP(() => {
-    const footer=footerRef.current;
-    if (!footer) return;
-    
-    
 
-    
+  useGSAP(() => {
+    const footer = footerRef.current;
+    if (!footer) return;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: footer,
@@ -35,57 +30,57 @@ const Footer = () => {
 
     tl.from(".footer-h1-left span", {
       xPercent: -100,
-      
+
       duration: 1,
       ease: "power2.inOut",
-    }).from(
-      ".footer-h1-right span",
-      {
-        xPercent: 100,
-        
-        duration: 1,
-        ease: "power2.inOut",
-      },
-      "<"
-    )
-    .from(
-      ".links",
-      {
-        scaleX:0,
-        transformOrigin:"left",
-       
-        duration: 1,
-      
-        ease: "power1.inOut",
-      },
-        "<"   
-      ).from(
-      ".footer-h1-heading span",
-      {
+    })
+      .from(
+        ".footer-h1-right span",
+        {
+          xPercent: 100,
+
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "<"
+      )
+      .from(
+        ".links",
+        {
+          scaleX: 0,
+          transformOrigin: "left",
+
+          duration: 1,
+
+          ease: "power1.inOut",
+        },
+        "<"
+      )
+      .from(".footer-h1-heading span", {
         yPercent: 100,
         opacity: 0,
         duration: 0.5,
         ease: "power2.out",
-      },
-    ).from(
-      ".links span",
-      {
-        yPercent: 100,
-        opacity: 0,
-        duration: 0.5,
-      
-        ease: "power2.out",
-      },
-        "<"   
+      })
+      .from(
+        ".links span",
+        {
+          yPercent: 100,
+          opacity: 0,
+          duration: 0.5,
+
+          ease: "power2.out",
+        },
+        "<"
       );
 
-
- 
-    
-    
-  })
+    return () => {
+      tl.kill();
+    };
+  });
   return (
-    <div
+    <section
+      id="contact"
       ref={footerRef}
       className="relative text-background flex flex-col justify-between  h-max  lg:min-h-screen lg:h-[90vh]  p-6 lg:p-8 mt-20  bg-accent"
     >
@@ -178,10 +173,9 @@ const Footer = () => {
                 <QuickLinks
                   key={idx}
                   name={nav.name}
-                  
+                  className="links"
                   type="route"
                   onClick={() => {
-                   
                     if (nav.path.startsWith("#"))
                       scrollToSection(nav.path.slice(1));
                   }}
@@ -210,16 +204,14 @@ const Footer = () => {
             variants={{ hover: { y: "0%", x: "0%", rotate: -45 } }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="absolute top-0 left-0 leading-0 block  overflow-hidden"
-            onClick={()=>
-                      scrollToSection("hero")
-                  }
+            onClick={() => scrollToSection("hero")}
           >
             <FaArrowRight />
           </motion.span>
         </motion.span>
       </h1>
-    </div>
+    </section>
   );
-}
-
-export default Footer
+};
+Footer.DisplayName = "Footer";
+export default Footer;

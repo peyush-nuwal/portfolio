@@ -122,7 +122,7 @@ const Faq = () => {
 
    })
   return (
-    <div
+    <section id="faq"
       ref={sectionRef}
       className="text-primary h-fit lg:min-h-[70vh] lg:h-max  flex flex-col lg:flex-row px-4 lg:px-6 my-10 lg:my-16"
     >
@@ -171,8 +171,9 @@ const Faq = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
+Faq.DisplayName='faq'
 export default Faq

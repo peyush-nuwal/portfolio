@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import Image from "next/image";
 
 const Hero = () => {
-  const heroRef = useRef<HTMLDivElement | null>(null);
+  const heroRef = useRef<HTMLElement | null>(null);
   const firstNameRef = useRef<HTMLDivElement | null>(null);
   const lastNameRef = useRef<HTMLDivElement | null>(null);
   const ImgRef = useRef<HTMLDivElement | null>(null);
@@ -52,7 +52,11 @@ const Hero = () => {
       },
       0.7
     );
-  });
+
+     return () => {
+       t2.kill();
+     };
+  },[]);
 
 
 
@@ -123,7 +127,8 @@ const Hero = () => {
    }, [])
    
   return (
-    <div
+    <section
+      id="hero"
       ref={heroRef}
       className="relative scale-y-0 origin-center z-[55] h-screen w-full pt-16 px-0 lg:px-2 bg-background text-primary flex flex-col gap-28 lg:gap-3 "
     >
@@ -174,8 +179,8 @@ const Hero = () => {
           className="w-full h-full object-cover"
         />
       </div>
-    </div>
+    </section>
   );
 };
-
+Hero.displayName = "Hero";
 export default Hero;

@@ -7,47 +7,17 @@ import { motion } from "motion/react";
 import Descriptions from "./Descriptions";
 import Titles from "./Titles";
 import Blob from "./Blob";
+import { services } from "../../public/data/Services";
 
 gsap.registerPlugin(ScrollTrigger);
-const services = [
-  {
-    title: "Responsive Web Design",
-    description:
-      "Crafting sleek, mobile-friendly layouts that look great on all screen sizes using modern CSS techniques.",
-    speed: 0.9,
-  },
-  {
-    title: "Frontend Development",
-    description:
-      "Building dynamic and interactive UIs with React, Next.js, TypeScript, and animation libraries like GSAP and Framer Motion.",
-    speed: 1.3,
-  },
-  {
-    title: "UI/UX Enhancement",
-    description:
-      "Improving user experiences with subtle animations, hover effects, and intuitive navigation.",
-    speed: 0.95,
-  },
-  {
-    title: "Performance Optimization",
-    description:
-      "Boosting website speed by optimizing assets, lazy loading, and minimizing re-renders.",
-    speed: 1.3,
-  },
-  {
-    title: "Portfolio Projects",
-    description:
-      "Creating unique, animated, and polished projects that showcase creativity and coding skills.",
-    speed: 1.25,
-  },
-];
+
 
 export default function ServicesSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
-    <section
+    <section id="service"
       ref={sectionRef}
       className="relative w-full  h-[60vh] lg:h-screen   text-primary px-6 my-3 lg:my-6  overflow-hidden"
     >

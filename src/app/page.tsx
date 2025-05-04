@@ -1,6 +1,6 @@
 "use client";
 import Hero from "@/components/Hero";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Cursor from "@/components/Cursor";
 import Nav from "@/components/Nav";
 import About from "@/components/About";
@@ -19,29 +19,27 @@ import Marquee from "@/components/Marquee";
 
 export default function Home() {
   const pageRef = useRef<HTMLDivElement | null>(null);
-  const contentRef = useRef<HTMLDivElement | null>(null);
+  
   const stickyElementRef = useRef<HTMLDivElement | null>(null);
 
-  const [navOpen, setNavOpen] = useState<boolean>(false)
+  const [navOpen, setNavOpen] = useState<boolean>(false);
   const [disableScroll, setDisableScroll] = useState(true);
   const [loading, setLoading] = useState(true);
 
   const lenis = useLenis(disableScroll);
-   
 
   useGSAP(() => {
-    if (!pageRef.current || !contentRef.current) return;
+    if (!pageRef.current ) return;
 
     const tl = gsap.timeline({
       onComplete: () => {
         setDisableScroll(false);
         setLoading(false);
-        pageRef.current!.style.overflow = "";
+        
       },
     });
 
-    tl.to({}, { duration: 6 }) // fake 6s loading
-      .to(contentRef.current, { opacity: 1, duration: 0.5 }, "-=0.1");
+   
   }, []);
 
   const handleScrollToTop = () => {
@@ -49,70 +47,49 @@ export default function Home() {
       lenis.scrollTo(0, {
         immediate: false,
         duration: 1.5,
-        easing: (t) => 1 - Math.pow(1 - t, 4), 
+        easing: (t) => 1 - Math.pow(1 - t, 4),
       });
     }
-
-   
   };
-
-  
 
   useGSAP(() => {
     const page = pageRef.current;
-     
 
-     if (!page) return;
-    
-     
+    if (!page) return;
+
     gsap.from(page, {
       duration: 7,
       onStart: () => {
         handleScrollToTop();
       },
       onComplete: () => {
-        
         setDisableScroll(false);
         setLoading(false);
 
-        page.style.overflow = "";
+        
       },
     });
-    gsap.from(contentRef.current, {
-      opacity: 0,
-      delay: 6.9,
-      duration: 0.1,
-    });
-  });
   
+  });
 
   return (
     <main ref={pageRef} className=" h-full w-full">
       <Loader />
       <Nav ref={stickyElementRef} navOpen={navOpen} setNavOpen={setNavOpen} />
-      <section id="hero">
-        <Hero />
-      </section>
+      <Hero />
+
       {loading === false && (
-        <div ref={contentRef}>
-          <section id="about">
-            <About />
-          </section>
+        <div >
+          <About />
           <Skills />
-          <section id="service">
-            <Services />
-          </section>
-          <section id="projects">
+          <Services />
             <Featured />
-          </section>
           <Workflow />
           <Marquee />
-          <section id="faq">
             <Faq />
-          </section>
-          <section id="contact">
+          
             <Footer />
-          </section>
+          
         </div>
       )}
 
@@ -121,8 +98,3 @@ export default function Home() {
     </main>
   );
 }
-
-
-
-
-

@@ -77,41 +77,40 @@ const handleEnter = () => {
   };
 
 
-  const { title, label, url } = projects[index];
+  const { title, label, url,type } = projects[index];
   const isFirst = index === 0;
 
   return (
-     <a href={url} target="_blank" rel="noopener noreferrer">
+    <a href={url} target="_blank" rel="noopener noreferrer">
       <div
-      ref={containerRef}
-      className={`award  text-2xl lg:text-4xl  font-semibold overflow-hidden h-[80px] border-b-2 border-b-primary border-t-2 ${
-        isFirst ? "border-t-primary" : "border-t-transparent"
-      }`}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-    >
-      <div
-        ref={wrapperRef}
-        className={`award-wrapper relative will-change-transform translate-y-[-160px]   `}
+        ref={containerRef}
+        className={`award  text-2xl lg:text-4xl  font-semibold overflow-hidden h-[80px] border-b-2 border-b-primary border-t-2 ${
+          isFirst ? "border-t-primary" : "border-t-transparent"
+        }`}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
       >
-        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase px-4 lg:px-10 bg-background text-primary">
-          <h1>bae-project{index}</h1>
-          <h1>{label} upper</h1>
-        </div>
         <div
-          className={`w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase   bg-primary text-background px-4 lg:px-10 border-b-2 border-b-primary  `}
+          ref={wrapperRef}
+          className={`award-wrapper relative will-change-transform translate-y-[-160px]   `}
         >
-          <h1>{title}</h1>
-         
+          <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase px-4 lg:px-10 bg-background text-primary">
+            <h1>{title}</h1>
+            <h1>{type}</h1>
+          </div>
+          <div
+            className={`w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase   bg-primary text-background px-4 lg:px-10 border-b-2 border-b-primary  `}
+          >
+            <h1>{label}</h1>
+
             <h1>See live</h1>
-       
-        </div>
-        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase  px-4 lg:px-10 bg-background text-primary">
-          <h1>bae-project{index}</h1>
-          <h1>{label} </h1>
+          </div>
+          <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase  px-4 lg:px-10 bg-background text-primary">
+            <h1>{title}</h1>
+            <h1>{type}</h1>
+          </div>
         </div>
       </div>
-    </div>
     </a>
   );
 };
@@ -132,6 +131,7 @@ const Featured = () => {
       img.style.width = "100%";
       img.style.height = "100%";
       img.style.objectFit = "cover";
+      img.style.objectPosition = "top";
       img.style.willChange = "transform";
       img.style.zIndex = Date.now().toString();;
       img.style.transform = "scale(0)";
@@ -160,7 +160,7 @@ const Featured = () => {
  
 
   return (
-    <div className="min-h-screen  py-20 text-primary relative">
+    <section id="projects" className="min-h-screen  py-20 text-primary relative">
       <motion.h1
         whileHover="hover"
         className=" w-fit text-accent font-bold  text-3xl lg:text-5xl px-4 lg:px-8 py-1 mb-5 lg:mb-16 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
@@ -196,12 +196,12 @@ const Featured = () => {
       ))}
       <div
         ref={previewRef}
-        className="award-preview fixed bottom-[12px] right-[12px] w-1/3 h-1/3 pointer-events-none z-[1000]"
+        className="award-preview fixed bottom-[12px] right-[12px] w-1/3 h-2/5 pointer-events-none z-[1000]"
       >
        
       </div>
-    </div>
+    </section>
   );
 };
-
+Featured.DisplayName = "Featured";
 export default Featured;

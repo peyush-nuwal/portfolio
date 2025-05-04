@@ -13,8 +13,11 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const Skills = () => {
-  const quote = `'' My goal is to Write Maintainable, clean  and Understandable code to process development was enjoyable ''`;
 
+  const quote = `'' My goal is to Write Maintainable, clean  and Understandable code to process development was enjoyable ''`;
+  
+  
+  
   const handleDownload = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const link = document.createElement("a");
@@ -24,6 +27,7 @@ const Skills = () => {
   };
 
   useGSAP(() => {
+    const ctx = gsap.context(() => {
     gsap.from(".card", {
       x: "-100%",
       opacity: 0,
@@ -72,10 +76,15 @@ const Skills = () => {
         toggleActions: "play none none reverse",
       },
     });
-  });
+    });
+
+      return () => {
+        ctx && ctx.revert();
+      };
+  },[]);
 
   return (
-    <div
+    <section id='skills'
       className="skill-section  p-4  lg:p-10  my-5 lg:my-10 w-full h-screen  flex flex-col lg:flex-row-reverse  text-primary
     "
     >
@@ -116,6 +125,7 @@ const Skills = () => {
               type="primary"
               titleStyle="font-medium"
               subTitleStyle="text-xl "
+              link="https://www.linkedin.com/in/peyush-nuwal/"
             />
           </div>
           <div className="skill-btn">
@@ -125,6 +135,7 @@ const Skills = () => {
               type="primary"
               titleStyle="font-medium "
               subTitleStyle="text-xl "
+              link="https://www.x.com/Nuwal_Peyush"
             />{" "}
           </div>
         </div>
@@ -199,8 +210,9 @@ const Skills = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
+Skills.DisplayName="Skills"
 export default Skills;
