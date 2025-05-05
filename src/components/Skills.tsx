@@ -79,7 +79,8 @@ const Skills = () => {
     });
 
       return () => {
-        ctx && ctx.revert();
+       if (ctx) ctx.revert();
+
       };
   },[]);
 
