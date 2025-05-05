@@ -214,5 +214,5 @@ const Skills = () => {
   );
 };
 
-Skills.DisplayName="Skills"
+Skills.displayName="Skills"
 export default Skills;

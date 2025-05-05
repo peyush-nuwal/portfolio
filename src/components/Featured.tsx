@@ -203,5 +203,5 @@ const Featured = () => {
     </section>
   );
 };
-Featured.DisplayName = "Featured";
+Featured.displayName = "Featured";
 export default Featured;

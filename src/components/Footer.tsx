@@ -213,5 +213,5 @@ const Footer = () => {
     </section>
   );
 };
-Footer.DisplayName = "Footer";
+Footer.displayName = "Footer";
 export default Footer;

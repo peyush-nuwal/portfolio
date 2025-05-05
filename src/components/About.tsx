@@ -174,5 +174,5 @@ const About = () => {
   );
 };
 
-About.DisplayName="About"
+About.displayName="About"
 export default About;

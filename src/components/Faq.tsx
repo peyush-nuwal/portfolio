@@ -175,5 +175,5 @@ const Faq = () => {
   );
 }
 
-Faq.DisplayName='faq'
+Faq.displayName='faq'
 export default Faq
