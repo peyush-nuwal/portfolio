@@ -81,37 +81,37 @@ const handleEnter = () => {
   const isFirst = index === 0;
 
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer">
+    <div
+      ref={containerRef}
+      className={`award  text-xl lg:text-4xl  font-semibold overflow-hidden h-[80px] border-b-2 border-b-primary border-t-2 ${
+        isFirst ? "border-t-primary" : "border-t-transparent"
+      }`}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
       <div
-        ref={containerRef}
-        className={`award  text-2xl lg:text-4xl  font-semibold overflow-hidden h-[80px] border-b-2 border-b-primary border-t-2 ${
-          isFirst ? "border-t-primary" : "border-t-transparent"
-        }`}
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
+        ref={wrapperRef}
+        className={`award-wrapper relative will-change-transform translate-y-[-160px]    `}
       >
-        <div
-          ref={wrapperRef}
-          className={`award-wrapper relative will-change-transform translate-y-[-160px]   `}
-        >
-          <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase px-4 lg:px-10 bg-background text-primary">
-            <h1>{title}</h1>
-            <h1>{type}</h1>
-          </div>
+        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase px-4 lg:px-10 bg-background text-primary ">
+          <h1 className="truncate max-w-[60%]">{title}</h1>
+          <h1 className="whitespace-nowrap">{type}</h1>
+        </div>
+        <a href={url} target="_blank" rel="noopener noreferrer">
           <div
             className={`w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase   bg-primary text-background px-4 lg:px-10 border-b-2 border-b-primary  `}
           >
-            <h1>{label}</h1>
+            <h1 className="truncate max-w-[60%]">{label}</h1>
 
-            <h1>See live</h1>
+            <h1 className="whitespace-nowrap">See live</h1>
           </div>
-          <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase  px-4 lg:px-10 bg-background text-primary">
-            <h1>{title}</h1>
-            <h1>{type}</h1>
-          </div>
+        </a>
+        <div className="w-full flex justify-between items-center h-[80px] p-2 cursor-pointer uppercase  px-4 lg:px-10 bg-background text-primary">
+          <h1 className="truncate max-w-[60%]">{title}</h1>
+          <h1 className="whitespace-nowrap">{type}</h1>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
