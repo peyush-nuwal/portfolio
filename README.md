@@ -45,11 +45,15 @@ Or view the live site:
 
 ![App Screenshot](/public/screenshot/ss-4.png)
 
-![App Screenshot](/public/screenshot/ss-4.png)
-
 ![App Screenshot](/public/screenshot/ss-5.png)
 
 ![App Screenshot](/public/screenshot/ss-6.png)
+
+![App Screenshot](/public/screenshot/ss-7.png)
+
+![App Screenshot](/public/screenshot/ss-8.png)
+
+![App Screenshot](/public/screenshot/ss-9.png)
 
 
 
