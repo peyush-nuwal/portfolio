@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Peyush Nuwal - Portfolio Website
 
-First, run the development server:
+🌐 [Live Site](https://peyush-nuwal-portfolio.vercel.app/)
 
+A modern, interactive frontend portfolio built using Next.js, TypeScript, GSAP, Framer Motion, and TailwindCSS. Designed to showcase my skills, featured projects, and personal branding as a frontend developer.
+
+---
+
+
+## 🚀 Features
+
+- ✨ Animated hero section with GSAP-driven staggered text and direction-based stretch effects
+- 🖱️ Interactive project previews with smooth GSAP and Framer Motion transitions
+- 🎖️ Custom award hover effect with direction-based scroll using GSAP
+- ⚡ TailwindCSS v4-powered responsive layout with utility-first styling
+- 🎬 Custom animated loader to set visual tone and brand identity
+- 📱 Mobile-first, fluid design with accessibility and performance in mind
+- 🧱 Scalable and clean codebase with Next.js 15 and TypeScript
+
+## 🧰 Tech Stack
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
+
+
+## 🎥 Demo
+
+[Watch on YouTube](https://www.youtube.com/watch?v=your-video-id)
+
+Or view the live site:  
+🌐 [peyush-nuwal-portfolio.vercel.app](https://peyush-nuwal-portfolio.vercel.app/)
+
+
+## Screenshots
+
+![App Screenshot](/public/screenshot/ss-1.png)
+
+![App Screenshot](/public/screenshot/ss-2.png)
+
+![App Screenshot](/public/screenshot/ss-3.png)
+
+![App Screenshot](/public/screenshot/ss-4.png)
+
+![App Screenshot](/public/screenshot/ss-4.png)
+
+![App Screenshot](/public/screenshot/ss-5.png)
+
+![App Screenshot](/public/screenshot/ss-6.png)
+
+
+
+## 🛠 Installation & Setup
+
+To run this portfolio locally, follow these steps:
+
+1. **Clone the repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/peyush-nuwal/portfolio.git
+cd portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Start the development Server**
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Open your browser and navigate to:**
+```bash
+http://localhost:3000
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 📬 Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- LinkedIn: [linkedin.com/in/peyush-nuwal](https://linkedin.com/in/peyush-nuwal)
+- Email: piyushnawal19@gmail.com
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
