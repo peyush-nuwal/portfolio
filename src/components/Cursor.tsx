@@ -70,11 +70,11 @@ const Cursor: React.FC<CursorProps> = ({ stickyElementRef }) => {
     }
   };
 
-  const manageMouseOver = (_e: MouseEvent) => {
+  const manageMouseOver = () => {
     setIsHovered(true);
   };
 
-  const manageMouseLeave = (_e: MouseEvent) => {
+  const manageMouseLeave = () => {
     setIsHovered(false);
     if (cursor.current) {
       animate(
