@@ -169,10 +169,10 @@ const Hero = () => {
 
       <div
         ref={ImgRef}
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-9 lg:mt-8  w-[90%] lg:w-[30%]   p-[2px] bg-text -rotate-[7deg] lg:-rotate-[10deg]"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-9 md:mt-20  w-[90%] md:w-[40%]   p-[2px] bg-text -rotate-[7deg] lg:-rotate-[10deg]"
       >
         <Image
-          src="/pfp.jpeg"
+          src="/pfp.jpg"
           alt=""
           width={300}
           height={300}
