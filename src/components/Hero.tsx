@@ -172,7 +172,7 @@ const Hero = () => {
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-9 lg:mt-8  w-[90%] lg:w-[40%]   p-[2px] bg-text -rotate-[7deg] lg:-rotate-[10deg]"
       >
         <Image
-          src="/valo.png"
+          src="/pfp.jpeg"
           alt=""
           width={300}
           height={300}
