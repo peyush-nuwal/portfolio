@@ -26,32 +26,7 @@ const ProjectItem:React.FC<ProjectItemProps> = ({ index, setHoveredIndex }) => {
   }, []);
 
   
-  //  if (!containerRef.current || !wrapperRef.current) return;
-
-
-  //     const rect = containerRef.current.getBoundingClientRect();
-
-  //     const enteredFromTop = e.clientY < rect.top + rect.height / 2;
-
-  //     gsap.to(wrapperRef.current, {
-  //       y: enteredFromTop ? POSITIONS.BOTTOM : POSITIONS.TOP,
-  //       duration: 0.4,
-  //       ease: "power2.out",
-  //     });
-
-  //     setHoveredIndex(index);
-    
-  // };
-
-  // const handleLeave = () => {
-  //   gsap.to(wrapperRef.current, {
-  //     y: POSITIONS.MIDDLE,
-  //     duration: 0.4,
-  //     ease: "power2.inOut",
-  //   });
-
-  //   setHoveredIndex(null);
-  // };
+ 
 const handleEnter = () => {
   gsap.to(wrapperRef.current, {
     y: POSITIONS.MIDDLE, 
