@@ -37,23 +37,22 @@ Or view the live site:
 
 ## Screenshots
 
-![App Screenshot](/public/screenshot/ss-1.png)
+![App Screenshot](/public/screenshot/s-1.png)
 
-![App Screenshot](/public/screenshot/ss-2.png)
+![App Screenshot](/public/screenshot/s-2.png)
 
-![App Screenshot](/public/screenshot/ss-3.png)
+![App Screenshot](/public/screenshot/s-3.png)
 
-![App Screenshot](/public/screenshot/ss-4.png)
+![App Screenshot](/public/screenshot/s-4.png)
 
-![App Screenshot](/public/screenshot/ss-5.png)
+![App Screenshot](/public/screenshot/s-5.png)
 
-![App Screenshot](/public/screenshot/ss-6.png)
+![App Screenshot](/public/screenshot/s-6.png)
 
-![App Screenshot](/public/screenshot/ss-7.png)
+![App Screenshot](/public/screenshot/s-7.png)
 
-![App Screenshot](/public/screenshot/ss-8.png)
+![App Screenshot](/public/screenshot/s-8.png)
 
-![App Screenshot](/public/screenshot/ss-9.png)
 
 
 
