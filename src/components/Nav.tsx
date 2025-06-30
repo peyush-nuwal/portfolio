@@ -215,7 +215,7 @@ const Nav = forwardRef<HTMLDivElement, NavProps>(
               <div className="nav-cover absolute top-0 left-0 z-10  w-full h-full pointer-events-auto  bg-transparent"></div>
             </div>
           </div>
-          <div className="h-full lg:h-[10%]   w-fit lg:w-[98%] mx-auto border-t-none lg:border-t lg:border-t-background  px-2 flex flex-col lg:flex-row justify-start items-end lg:items-center   lg:justify-end  mt-[20%] lg:mt-0 lg:gap-3  ">
+          <div className="h-full lg:h-[10%]   w-fit lg:w-[98%] mx-auto border-t-none lg:border-t lg:border-t-background  px-2 flex flex-col lg:flex-row justify-center lg:justify-end items-start lg:items-center       gap-3 lg:gap-3  ">
             {social.map((social, idx) => (
               <QuickLinks
                 key={idx}

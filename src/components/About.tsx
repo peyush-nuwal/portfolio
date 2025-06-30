@@ -80,7 +80,10 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="relative w-full h-[70vh]    bg-background text-primary py-2 lg:py-10 ">
+    <section
+      id="about"
+      className="relative w-full h-[80vh]    bg-background text-primary py-2 lg:py-10 "
+    >
       <motion.h1
         whileHover="hover"
         className=" w-fit text-accent font-bold  text-3xl lg:text-5xl px-4 lg:px-8 py-1 group overflow-hidden cursor-pointer hover:text-accent about_h1 flex gap-1  items-center mix-blend-difference"
@@ -124,7 +127,7 @@ const About = () => {
           }}
           className="  absolute top-0   z-[500] w-full h-fit hidden lg:flex items-center justify-center bg-accent text-background  pointer-events-none origin-center overflow-hidden about-section  "
         >
-          <div className="text-4xl lg:text-6xl font-semibold   px-6 lg:px-10 flex flex-wrap   ">
+          <div className="text-3xl lg:text-6xl font-semibold   px-6 lg:px-10 flex flex-wrap   ">
             {underText.split(" ").map((c, idx) => (
               <p key={idx} className="mr-3 overflow-hidden py-[4px]">
                 <span
@@ -145,7 +148,7 @@ const About = () => {
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="text-4xl lg:text-6xl font-semibold text-primary px-6 lg:px-10 flex flex-wrap   "
+            className="text-3xl lg:text-6xl font-semibold text-primary px-6 lg:px-10 flex flex-wrap   "
           >
             {maskText.split(" ").map((c, idx) => (
               <p key={idx} className="mr-3 overflow-hidden py-[4px]">
